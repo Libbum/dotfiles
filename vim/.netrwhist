@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/genesis/.config/systemd/user/mpd.service'
+let g:netrw_dirhist_2='/home/genesis/git/octopress/source/_posts'
+let g:netrw_dirhist_3='/home/genesis/git/octopress/sass/base'
+let g:netrw_dirhist_4='/home/genesis/git/octopress/.themes/axiom/sass/partials'
+let g:netrw_dirhist_5='/home/genesis/git/octopress/.themes/axiom/source/_includes/asides'
+let g:netrw_dirhist_6='/home/genesis/git/octopress/.themes/axiom/source/_includes'
+let g:netrw_dirhist_7='/home/genesis/Downloads/fabric-master/sass/parts'
+let g:netrw_dirhist_8='/home/genesis/git/octopress/.themes/axiom/source/javascripts/libs'
+let g:netrw_dirhist_9='/home/genesis/git/octopress/.themes/axiom/source/_includes/post'

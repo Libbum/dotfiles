@@ -1,0 +1,9 @@
+[user]
+	email = genesis@neophilus.net
+	name = Tim DuBois
+[push]
+	default = matching
+[merge]
+	tool = vimdiff
+[color]
+	ui = auto

@@ -1,0 +1,298 @@
+!{{{ Font
+!!Xft.dpi: 160
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+xterm.font:-misc-tamsyn-medium-r-normal-*-17-*-*-*-*-*-iso8859-1
+URxvt.font: xft:PragmataPro:style=Regular:pixelsize=14
+!}}}
+
+!{{{ Xterm
+xterm*cursorColor: #ffaf5f
+xterm*underlineColor: #5a667f
+xterm*highlightColor: #5a667f
+xterm*highlightTextColor: #000000
+xterm*internalBorder: 0
+xterm*urgentOnBell: True
+xterm*colorMode: on
+xterm*cursorBlink: true
+xterm*cursorUnderline: false
+!}}}
+
+
+!{{{ Urxvt
+URxvt*transparent: true
+URxvt*shading: 30
+URxvt*geometry: 80x22
+!Urxvt.depth: 24
+URxvt*internalBorder: 0
+URxvt*loginShell: true
+URxvt*urgentOnBell: True
+URxvt*colorMode: on
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: false
+URxvt*cursorColor: #ffaf5f
+URxvt*underlineColor: #5a667f
+URxvt*highlightColor: #5a667f
+URxvt*highlightTextColor: #000000
+URxvt*scrollBar: false
+URxvt*borderless: true
+URxvt.saveLines: 10000
+URxvt.buffered: true
+!Urxvt.letterSpace: -1
+!}}}
+
+!{{{ Urxvt Extensions
+URxvt.perl-lib: /usr/lib/urxvt/perl
+URxvt.perl-ext-common: default,matcher,url-select,keyboard-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.url-select.launcher:  /usr/bin/chromium
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+URxvt.colorUL: #94738c
+URxvt.matcher.button: 1
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.rend.0: fg7
+!}}}
+
+
+*background: #080808
+*foreground: #aaaaaa
+
+
+! Black
+*color0:    #343639
+*color8:    #424242
+! Red
+*color1:    #CE5666
+*color9:    #d75f5f
+! Green
+*color2:    #80A673
+*color10:   #97D599
+! Yellow
+*color11:   #ffaf5f
+*color3:    #e0bc93
+!! Blue
+*color4:    #5A667F
+*color12:   #778BAF
+! Magenta
+*color5:    #94738C
+*color13:   #D8ADCE
+! Cyan
+*color6:    #5f8787
+*color14:   #69b2b2
+! White
+*color7:    #909090
+*color15:   #d7d7d7
+
+!{{{ Other Colors
+
+!! Black
+!*color0:    #303030
+!*color8:    #424242
+!! Red
+!*color1:    #CE5666
+!*color9:    #952743
+!! Green
+!*color2:    #80A673
+!*color10:   #97D599
+!! Yellow
+!*color3:    #E0BC93
+!*color11:   #FFCAA2
+!! Blue
+!*color4:    #5A667F
+!*color12:   #778BAF
+!! Magenta
+!*color5:    #94738C
+!*color13:   #D8ADCE
+!! Cyan
+!*color6:    #B5D2DD
+!*color14:   #82A9CC
+!! White
+!*color7:    #d2d2d2
+!*color15:   #ffffff
+
+
+!!Black
+!*color0:    #343639
+!*color8:    #404040
+!! Red
+!*color1:    #B28284
+!*color9:    #BD8A8C
+!! Green
+!*color2:    #82B284
+!*color10:   #8ABD8C
+!! Yellow
+!*color3:    #B2B282
+!*color11:   #BDBD8A
+!! Blue
+!*color4:    #8292B2
+!*color12:   #8A9BBD
+!! Magenta
+!*color5:    #A082B2
+!*color13:   #A183C2
+!! Cyan
+!*color6:    #82B2A6
+!*color14:   #8ABDB0
+!! White
+!*color7:    #B2B2B2
+!*color15:   #BDBDBD
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!*background: #050505
+!*foreground: #999999
+!!Black
+!*color0: #0f0f0f
+!*color8: #292929
+!!Red
+!*color1: #2f4d80
+!*color9: #7791e0
+!!Green
+!*color2: #424242
+!*color10: #828a8c
+!!Yellow
+!*color3: #6b8ba3
+!*color11: #8ebdde
+!!Blue
+!*color4: #273a87
+!*color12: #3955c4
+!!Magenta
+!*color5: #74637d
+!*color13: #927d9e
+!!Cyan
+!*color6: #556c85
+!*color14: #6e98b8
+!White
+!*color7: #c0c0c0
+!*color15: #ffffff
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!Black
+!*color0: #343639
+!*color8: #404040
+!!Red
+!!*color1: #2f4d80
+!*color1: #2f468e
+!*color9: #7791e0
+!!Green
+!*color2: #424242
+!*color10: #828a8c
+!!Yellow
+!*color3: #6b8ba3
+!*color11: #8ebdde
+!!Blue
+!!*color4: #273a87
+!*color4: #1c4582
+!!*color12: #3955c4
+!*color12: #5365a6
+!!Magenta
+!*color5: #74637d
+!*color13: #927d9e
+!!Cyan
+!*color6: #556c85
+!*color14: #6e98b8
+!!White
+!*color7: #b2b2b2
+!*color15: #bdbdbd
+
+!}}}
+
+!}}}
+
+!{{{ X Apps
+
+!{{{ Xcalc
+xcalc*name: xcalc
+xcalc*geometry:             200x275
+xcalc.ti.bevel.background:      #101010
+xcalc.ti.bevel.screen.background:   #000000
+xcalc.ti.bevel.screen.DEG.background:   #000000
+xcalc.ti.bevel.screen.DEG.foreground:   LightSeaGreen
+xcalc.ti.bevel.screen.GRAD.background:  #000000
+xcalc.ti.bevel.screen.GRAD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.RAD.background:   #000000
+xcalc.ti.bevel.screen.RAD.foreground:   LightSeaGreen
+xcalc.ti.bevel.screen.INV.background:   #000000
+xcalc.ti.bevel.screen.INV.foreground:   Red
+xcalc.ti.bevel.screen.LCD.background:   #000000
+xcalc.ti.bevel.screen.LCD.foreground:   LightSeaGreen
+xcalc.ti.bevel.screen.LCD.shadowWidth:  0
+xcalc.ti.bevel.screen.M.background: #000000
+xcalc.ti.bevel.screen.M.foreground: LightSeaGreen
+xcalc.ti.bevel.screen.P.background: #000000
+xcalc.ti.bevel.screen.P.foreground: Yellow
+xcalc.ti.Command.foreground:    White
+xcalc.ti.Command.background:    #777777
+xcalc.ti.button5.background:    Orange3
+xcalc.ti.button19.background:   #611161
+xcalc.ti.button18.background:   #611161
+xcalc.ti.button20.background:   #611111
+!uncomment to change label on division button
+xcalc.ti.button20.label:    /
+xcalc.ti.button25.background:   #722222
+xcalc.ti.button30.background:   #833333
+xcalc.ti.button35.background:   #944444
+xcalc.ti.button40.background:   #a55555
+xcalc.ti.button22.background:   #222262
+xcalc.ti.button23.background:   #222262
+xcalc.ti.button24.background:   #222272
+xcalc.ti.button27.background:   #333373
+xcalc.ti.button28.background:   #333373
+xcalc.ti.button29.background:   #333373
+xcalc.ti.button32.background:   #444484
+xcalc.ti.button33.background:   #444484
+xcalc.ti.button34.background:   #444484
+xcalc.ti.button37.background:   #555595
+xcalc.ti.button38.background:   #555595
+xcalc.ti.button39.background:   #555595
+XCalc*Cursor:           hand2
+XCalc*ShapeStyle:       rectangle
+!}}}
+
+!{{{ Xlock
+XLock.echokeys:      true
+XLock.echokey:       *
+XLock.font:          -misc-tamsyn-medium-r-normal-*-15-*-*-*-*-*-iso8859-1
+!XLock.font:          xft:montecarlo-font:pixelsize=12
+!}}}
+
+!{{{ Xmessage
+Xmessage*font:                  -misc-tamsyn-medium-r-normal-*-15-*-*-*-*-*-iso8859-1
+!Xmessage*font:                  xft:montecarlo-font:pixelsize=12
+Xmessage*form.*.shapeStyle:     rectangle
+Xmessage*Scrollbar.width:       1
+Xmessage*Scrollbar.borderWidth: 0
+Xmessage*Buttons:               Quit
+Xmessage*defaultButton:         Quit
+!}}}
+
+!{{{ XFontSel
+XFontSel*menu*showUnselectable:       false
+XFontSel*MenuButton.shadowWidth:          0
+XFontsel*Toggle*ToggleStyle:          check
+XFontsel*MenuButton*Justify:           left
+XFontsel*MenuButton*MenuButtonStyle: select
+xfontsel*Font: -misc-tamsyn-medium-r-normal-*-15-*-*-*-*-*-iso8859-1
+!xfontsel*Font: xft:montecarlo-font:pixelsize=12
+xfontsel.pane.fieldBox.MenuButton.borderWidth:   1
+xfontsel.pane.fieldBox.MenuButton.internalHeight:1
+xfontsel.pane.fieldBox.MenuButton.internalWidth: 2
+xfontsel.pane.fieldBox.MenuButton.shapeStyle:    rectangle
+!}}}
+
+!}}}
+
+!{{{ Xcursor
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 13
+!}}}
