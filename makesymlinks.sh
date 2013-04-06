@@ -6,30 +6,41 @@
 
 ########## Variables
 
+host=$(hostname)
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bash_profile bashrc dir_colors gitconfig tmux.conf vim vimrc Xdefaults xinitrc scripts"    # list of files/folders to symlink in homedir
 
 ##########
 
+cd ~
+
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
 mkdir -p $olddir
-echo "done"
+echo " done"
 
 # change to the dotfiles directory
 echo -n "Changing to the $dir directory ..."
 cd $dir
-echo "done"
+echo " done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
-    mv ~/.$file ~/dotfiles_old/
+    [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
 
 echo "Moved any existing dotfiles from ~ to $olddir"
+
+echo -n "Configuring any system specific files ..."
+if [ -f $dir/includes/$host/vimrc.local ];
+then
+   [ -f ~/.vimrc.local ] && mv ~/.vimrc.local ~/dotfiles_old/
+   ln -s $dir/includes/$host/vimrc.local ~/.vimrc.local
+fi
+echo " done"
 
 #Below will be usefull later when I get around to moving to zsh
 
