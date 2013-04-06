@@ -4,7 +4,8 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-eval $(keychain --eval --agents ssh,gpg -Q --quiet id_rsa)
+host=$(hostname)
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Host specific proflie additions
+[ -f ~/.dotfiles/includes/"$host"/bash_profile ] && source ~/.dotfiles/includes/"$host"/bash_profile
+

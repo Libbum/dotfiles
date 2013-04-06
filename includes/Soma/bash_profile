@@ -1,0 +1,9 @@
+# bash_profile includes for Soma
+
+eval $(keychain --eval --agents ssh,gpg -Q --quiet id_rsa)
+  
+export MATLAB_JAVA=/usr/lib/jvm/java-7-openjdk/jre
+ 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
