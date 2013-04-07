@@ -12,18 +12,18 @@ systemd --user & #run systemd as user instance
 #exec dwm
 
 case $1 in
-xmonad)
+dwm)
+        xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
+        xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
+        
+        ~/.scripts/startdwm
+        ;;
+xmonad|*)
         xsetroot -cursor_name left_ptr
         setxkbmap -layout dvorak
         xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
         xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
         exec xmonad
-        ;;
-dwm|*)
-        xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
-        xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
-        
-        ~/.scripts/startdwm
         ;;
 esac
 
