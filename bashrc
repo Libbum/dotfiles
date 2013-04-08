@@ -207,6 +207,7 @@ On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
 # Various variables
+Host=$(hostname)
 Time12h="\T"
 Time12a="\@"
 PathShort="\w"
@@ -220,7 +221,7 @@ fi
 
 
 
-export PS1=$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
+export PS1=$IBlack$Host$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
@@ -235,4 +236,3 @@ else \
    echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
