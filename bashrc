@@ -207,7 +207,8 @@ On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
 # Various variables
-Host=$(hostname)
+tmphost=$(hostname -s)
+Host=${tmphost[@]^}
 Time12h="\T"
 Time12a="\@"
 PathShort="\w"

@@ -1,0 +1,7 @@
+[http]
+	proxy = http://e81365:Flu0r1n3@bproxy.rmit.edu.au:8080
+[user]
+	name = Tim DuBois
+	email = timothy.dubois@rmit.edu.au
+[color]
+	ui = auto

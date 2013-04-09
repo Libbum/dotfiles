@@ -1,0 +1,8 @@
+# bash_profile includes for Fenchurh
+
+PATH=$PATH:/usr/local/cuda/bin/:$HOME/bin
+
+export PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
