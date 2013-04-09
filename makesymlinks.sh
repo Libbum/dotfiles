@@ -23,6 +23,7 @@ echo " done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
+    [ -L ~/.$file ] && rm ~/.$file  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
     [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
@@ -30,6 +31,7 @@ done
 
 
 for folder in $folders; do
+    [ -L ~/.$folder ] && rm ~/.$folder  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
     [ -d ~/.$folder ] && mv ~/.$folder ~/dotfiles_old/
     echo "Creating symlink to $folder in home directory."
     ln -s $dir/$folder ~/.$folder
@@ -41,6 +43,7 @@ echo "Configuring any system specific files ..."
 for file in $specfiles; do
   if [ -f $dir/includes/$host/$file ];
   then
+      [ -L ~/.$file ] && rm ~/.$file  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
       [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
       echo "Creating symlink to $file in home directory."
       ln -s $dir/includes/$host/$file ~/.$file
