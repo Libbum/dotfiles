@@ -1,3 +1,5 @@
 #bash_profile includes for Trifid
 
+source ~/bin/git-prompt.sh
+
 PATH=~/bin/:$PATH
