@@ -9,8 +9,8 @@
 host=$(hostname)
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bash_profile bashrc dir_colors gitconfig tmux.conf vim vimrc Xdefaults xinitrc scripts"    # list of files/folders to symlink in homedir
-
+files="bash_profile bashrc dir_colors gitconfig tmux.conf vim vimrc scripts"    # list of files/folders to symlink in homedir
+specfiles="xinitrc Xdefaults"  # system specific files
 ##########
 
 cd ~
@@ -35,6 +35,11 @@ done
 echo "Moved any existing dotfiles from ~ to $olddir"
 
 echo -n "Configuring any system specific files ..."
+for file in $specfiles; do
+    [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
+    echo "Creating symlink to $file in home directory."
+    ln -s $dir/includes/$host/$file ~/.$file
+done
 if [ -f $dir/includes/$host/vimrc.local ];
 then
    [ -f ~/.vimrc.local ] && mv ~/.vimrc.local ~/dotfiles_old/
