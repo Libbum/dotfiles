@@ -9,7 +9,8 @@
 host=$(hostname -s)
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bash_profile bashrc dir_colors tmux.conf vim vimrc scripts"    # list of files/folders to symlink in homedir
+folders="vim scripts"
+files="bash_profile bashrc dir_colors tmux.conf vimrc"    # list of files/folders to symlink in homedir
 specfiles="xinitrc Xdefaults vimrc.local gitconfig"  # system specific files, these do not have to exist
 ##########
 
@@ -20,11 +21,6 @@ echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
 mkdir -p $olddir
 echo " done"
 
-# change to the dotfiles directory
-echo -n "Changing to the $dir directory ..."
-cd $dir
-echo " done"
-
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
@@ -32,7 +28,14 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-echo "Moved any existing dotfiles from ~ to $olddir"
+
+for folder in $folders; do
+    [ -d ~/.$folder ] && mv ~/.$folder ~/dotfiles_old/
+    echo "Creating symlink to $folder in home directory."
+    ln -s $dir/$folder ~/.$folder
+done
+
+echo "Moved any existing dotfiles and folders from ~ to $olddir"
 
 echo "Configuring any system specific files ..."
 for file in $specfiles; do

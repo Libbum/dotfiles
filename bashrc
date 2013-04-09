@@ -195,12 +195,6 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-   . /usr/share/git/completion/git-prompt.sh
-fi
-
-
-
 export PS1=$IBlack$Host$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
