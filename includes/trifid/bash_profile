@@ -1,0 +1,3 @@
+#bash_profile includes for Trifid
+
+PATH=~/bin/:$PATH
