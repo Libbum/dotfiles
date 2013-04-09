@@ -1,0 +1,3 @@
+#bashrc includes for Soma
+
+alias redwm='sed -i '/md5sums/,/-End/d' PKGBUILD; makepkg -g >> PKGBUILD; makepkg -fi'

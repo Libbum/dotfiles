@@ -67,27 +67,8 @@ export COLOR_YELLOW='\033[1;33m'
 export COLOR_GRAY='\033[1;30m'
 export COLOR_LIGHT_GRAY='\033[0;37m'
 
-#-------------------------------------------------------------
-# Shell Prompt
-#-------------------------------------------------------------
-
-
-#PROMPT_COMMAND='PS1="\[\033[0;33m\][\!]\[\033[1;30m\]Soma\`
-#if [[ \$? = "0" ]];
-#then echo "\\[\\033[32m\\]";
-#else echo "\\[\\033[31m\\]";
-#fi
-#\`[\`
-#if [[ `pwd|wc -c|tr -d " "` > 35 ]];
-#then echo "\\W";
-#else echo "\\w";
-#fi
-#\`]>\[\033[0m\] ";
-#echo -ne "\033]0;`hostname -s`:`pwd`\007"'
-PS1='[\u@\h \W]\$ '
-
-#export LS_COLORS='di=1;34:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.job=95'
 eval `dircolors -b $HOME/.dir_colors`
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
@@ -110,8 +91,6 @@ function ll(){ ls -l "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| \
 
 alias dud='du -sh' #requires directory
 alias vi='vim'
-alias redwm='sed -i '/md5sums/,/-End/d' PKGBUILD; makepkg -g >> PKGBUILD; makepkg -fi'
-
 
 # NOTES
 #######################################################
@@ -207,8 +186,8 @@ On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
 # Various variables
-tmphost=$(hostname -s)
-Host=${tmphost[@]^}
+host=$(hostname -s)
+Host=${host[@]^}
 Time12h="\T"
 Time12a="\@"
 PathShort="\w"
@@ -236,4 +215,8 @@ else \
    # @2 - Prompt when not in GIT repo
    echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
+
+
+# Host specific proflie additions
+[ -f ~/.dotfiles/includes/"$host"/bashrc ] && source ~/.dotfiles/includes/"$host"/bashrc
 

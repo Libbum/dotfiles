@@ -1,5 +1,7 @@
 # bash_profile includes for Fenchurh
 
+source ~/.scripts/git-prompt.sh
+
 PATH=$PATH:/usr/local/cuda/bin/:$HOME/bin
 
 export PATH
