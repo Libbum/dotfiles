@@ -7,6 +7,7 @@
 #
 # More Information at
 # https://github.com/seebi/dircolors-solarized
+# https://github.com/altercation/solarized
 
 # Term Section
 TERM Eterm
@@ -265,4 +266,8 @@ EXEC 01;38;5;64
 .ogv 01;38;5;166
 .ogx 01;38;5;166
 
-
+# Jobs and Output
+.job    00;38;5;37
+.e      00;38;5;160
+.o      00;38;5;33
+.s      00;38;5;64
