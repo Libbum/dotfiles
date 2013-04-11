@@ -1,0 +1,26 @@
+#bashrc includes for Vayu
+
+source ~/.tp_command
+
+export GULP_LIB=/home/595/tcb595/scripts/gulp3.5.1/Libraries
+export GULP_DOC=/home/595/tcb595/scripts/gulp3.5.1/Docs
+export IPM_LOGDIR=/short/h72/tim/ipm_logs
+export IPM_LOGFILE=$PBS_JOBID.`date +%s`
+export MPIEXEC_RSH=pbs_rsh
+export LD_LIBRARY_PATH=/home/595/tcb595/lib
+
+alias back='tar --exclude=WAVECAR --exclude=CHG* -cvzf' #requires filenam directory
+alias h72='cd /short/h72/tim'
+alias k76='cd /short/k76/tim'
+alias cpvasp='cp PO* INCAR KPOINTS *.job'
+alias clean='rm CHG* *.job.* CONTCAR EIGENVAL OSZICAR PCDAT XDATCAR vasprun.xml DOSCAR IBZKPT OUTCAR WAVECAR'
+alias lwd='cd $(cat ~/.lwdloc)'
+alias qcd='. ~/scripts/bgqdir' #goes to dir of qID
+
+function qq() { nqstat "$@" | grep -E "[0-9].*tcb595.*|$" ;} #Highlights my runs
+function tt() {  awk 'NR==6 { print "Elapsed Time: " $5 }' *.job.o*; }
+#These ones work on all sub directories, allowing extra flags to find such as -prune and -name for example
+function err(){ for a in $(find * -type d "$@"); do echo $a; cat $a/*.job.e*; done }
+function nrg(){ for a in $(find * -type d "$@"); do echo $a" "$(grep "gy  wi" $a/OUTCAR | tail -1 | awk '{print $4}'); done }
+
+

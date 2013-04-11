@@ -1,0 +1,27 @@
+#includes for Vayu's bash_profile
+
+umask 027
+
+module load dot 
+module load intel-fc
+module load intel-cc
+
+module load openmpi
+module load intel-mkl/13.1.117
+
+PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
+export PATH
+
+tempfile=/tmp/ssh-agent.test
+
+#override TERM if logging in from Soma
+[ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm
+
+ON=`cat ~/simulate`
+if [ $ON -eq 1 ]; then
+    ~/scripts/simulate
+fi
+
+echo 0 > ~/simulate
+
+
