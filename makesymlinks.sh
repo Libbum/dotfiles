@@ -6,7 +6,8 @@
 
 ########## Variables
 
-host=$(hostname -s)
+hosttmp=$(hostname -s)
+host=${hosttmp%[0-9]} #fix for clusters like Vayu that have multiple login hosts. Vayu, Vayu2, Vayu3 are all cut to Vayu.
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 folders="vim scripts"             # list of directories to symlink to homedir
