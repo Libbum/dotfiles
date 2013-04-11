@@ -41,9 +41,9 @@ echo "Moved any existing dotfiles and folders from ~ to $olddir"
 
 echo "Configuring any system specific files ..."
 for file in $specfiles; do
+  [ -L ~/.$file ] && rm ~/.$file  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
   if [ -f $dir/includes/$host/$file ];
   then
-      [ -L ~/.$file ] && rm ~/.$file  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
       [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
       echo "Creating symlink to $file in home directory."
       ln -s $dir/includes/$host/$file ~/.$file
