@@ -26,7 +26,7 @@
 
 
 set nocompatible
-let mapleader = ","
+let mapleader = ","  " TODO: fix this (before pg 100 somewhere)
 " imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 execute pathogen#infect()  
 
@@ -148,6 +148,53 @@ set nolist
 "behave xterm
 "set selectmode=mouse
 
+" Keyboard  *******************************************************************
+function! Keyboard(type)
+   if a:type == "dvorak"
+      nnoremap d h
+      nnoremap h j
+      nnoremap t k
+      nnoremap n l
+      nnoremap s :
+      nnoremap S :
+      nnoremap j d
+      onoremap j d
+      nnoremap l n
+      nnoremap L N
+
+      nnoremap - $
+      nnoremap _ ^
+      nnoremap N <C-w><C-w>
+      nnoremap H 8<Down>
+      nnoremap T 8<Up>
+      nnoremap D <C-w><C-r>
+   elseif a:type == "workman"
+
+   else " qwerty
+      nunmap d
+      nunmap h
+      nunmap t
+      nunmap n
+      nunmap s
+      nunmap S
+      nunmap j
+      ounmap j
+      nunmap l
+      nunmap L
+ 
+      nunmap -
+      nunmap _
+      nunmap N
+      nunmap H
+      nunmap T
+      nunmap D
+   endif
+endfunction
+
+autocmd VimEnter * call Keyboard("dvorak") " Dvorak keyboard settings as default
+
+:noremap <Leader>q :call Keyboard("qwerty")<CR> " Map normal modes keys to qwerty
+:noremap <Leader>d :call Keyboard("dvorak")<CR> " Map normal modes keys to dvorak
 
 " Misc settings ***************************************************************
 set backspace=indent,eol,start
