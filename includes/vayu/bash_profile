@@ -12,6 +12,7 @@ module load intel-mkl/13.1.117
 PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
 export PATH
 
+source ~/bin/git-prompt.sh
 tempfile=/tmp/ssh-agent.test
 
 #override TERM if logging in from Soma
