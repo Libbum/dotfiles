@@ -4,8 +4,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-hosttmp=$(hostname -s)
-host=${hosttmp%[0-9]} #cluster with multiple login nodes fix
+host=${HOSTNAME%%[.0-9]*} #see bashrc for the reasons for this.
 
 # Host specific proflie additions
 [ -f ~/.dotfiles/includes/"$host"/bash_profile ] && source ~/.dotfiles/includes/"$host"/bash_profile

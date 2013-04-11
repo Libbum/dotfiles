@@ -186,8 +186,7 @@ On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
 # Various variables
-hosttmp=$(hostname -s)
-host=${hosttmp%[0-9]} #Cluster fix
+host=${HOSTNAME%%[.0-9]*}
 Host=${host[@]^}
 Time12h="\T"
 Time12a="\@"

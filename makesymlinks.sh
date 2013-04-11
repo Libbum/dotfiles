@@ -6,8 +6,7 @@
 
 ########## Variables
 
-hosttmp=$(hostname -s)
-host=${hosttmp%[0-9]} #fix for clusters like Vayu that have multiple login hosts. Vayu, Vayu2, Vayu3 are all cut to Vayu.
+host=${HOSTNAME%%[.0-9]*}       #multiple checks. Remove full domain, remove multiple login servers for clustered machines (Vayu2, Vayu3 etc), circumvent Soma's hostname -s ipv6 lag
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 folders="vim scripts"             # list of directories to symlink to homedir
