@@ -11,9 +11,8 @@ dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 folders="vim scripts"             # list of directories to symlink to homedir
 files="bash_profile bashrc dir_colors tmux.conf vimrc"    # list of file to symlink in homedir
-specfiles="xinitrc Xdefaults vimrc.local gitconfig dir_colors"  # system specific files, these do not have to exist
+specfiles="xinitrc Xdefaults vimrc.local gitconfig"  # system specific files, these do not have to exist
 #TODO: Sort this out so it just finds the files rather than having to list them
-#NOTE: dir_colors has to be overidden on vayu because it's using a dog old version 
 ##########
 
 cd ~
@@ -28,7 +27,17 @@ for file in $files; do
     [ -L ~/.$file ] && rm ~/.$file  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
     [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    if [ $file == "dir_colors" ]; then
+        #dircolors is a special case because supercomputing clusters tend to use a dog old version - primarily to piss me off.
+        if [ $(echo "$(dircolors --version | head -n1 | awk '{ print $4 }') < 7.5" | bc) -eq 1 ]; then
+            #Problem case, link to the legacy version of dir_colors
+            ln -s $dir/includes/dir_colors.old ~/.$file
+        else
+           ln -s $dir/$file ~/.$file
+        fi
+    else
+       ln -s $dir/$file ~/.$file
+    fi
 done
 
 
@@ -38,6 +47,8 @@ for folder in $folders; do
     echo "Creating symlink to $folder in home directory."
     ln -s $dir/$folder ~/.$folder
 done
+
+
 
 echo "Moved any existing dotfiles and folders from ~ to $olddir"
 
