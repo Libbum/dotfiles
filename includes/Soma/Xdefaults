@@ -1,5 +1,19 @@
+! vim: ft=xdefaults
+
+#define t_background #1D1F21
+#define t_current_line #282A2E
+#define t_selection #373B41
+#define t_foreground #C5C8C6
+#define t_comment #707880
+#define t_red #CC6666
+#define t_orange #DE935F
+#define t_yellow #F0C674
+#define t_green #B5BD68
+#define t_aqua #8ABEB7
+#define t_blue #81A2BE
+#define t_purple #B294BB
+
 !{{{ Font
-!!Xft.dpi: 160
 Xft.dpi: 96
 Xft.antialias: true
 Xft.rgba: rgb
@@ -63,150 +77,34 @@ URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt.matcher.rend.0: fg7
 !}}}
 
-
-*background: #080808
-*foreground: #aaaaaa
-
-
-! Black
-*color0:    #343639
-*color8:    #424242
-! Red
-*color1:    #CE5666
-*color9:    #d75f5f
-! Green
-*color2:    #80A673
-*color10:   #97D599
-! Yellow
-*color11:   #ffaf5f
-*color3:    #e0bc93
-!! Blue
-*color4:    #5A667F
-*color12:   #778BAF
-! Magenta
-*color5:    #94738C
-*color13:   #D8ADCE
-! Cyan
-*color6:    #5f8787
-*color14:   #69b2b2
-! White
-*color7:    #909090
-*color15:   #d7d7d7
-
-!{{{ Other Colors
-
-!! Black
-!*color0:    #303030
-!*color8:    #424242
-!! Red
-!*color1:    #CE5666
-!*color9:    #952743
-!! Green
-!*color2:    #80A673
-!*color10:   #97D599
-!! Yellow
-!*color3:    #E0BC93
-!*color11:   #FFCAA2
-!! Blue
-!*color4:    #5A667F
-!*color12:   #778BAF
-!! Magenta
-!*color5:    #94738C
-!*color13:   #D8ADCE
-!! Cyan
-!*color6:    #B5D2DD
-!*color14:   #82A9CC
-!! White
-!*color7:    #d2d2d2
-!*color15:   #ffffff
-
-
-!!Black
-!*color0:    #343639
-!*color8:    #404040
-!! Red
-!*color1:    #B28284
-!*color9:    #BD8A8C
-!! Green
-!*color2:    #82B284
-!*color10:   #8ABD8C
-!! Yellow
-!*color3:    #B2B282
-!*color11:   #BDBD8A
-!! Blue
-!*color4:    #8292B2
-!*color12:   #8A9BBD
-!! Magenta
-!*color5:    #A082B2
-!*color13:   #A183C2
-!! Cyan
-!*color6:    #82B2A6
-!*color14:   #8ABDB0
-!! White
-!*color7:    #B2B2B2
-!*color15:   #BDBDBD
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-!*background: #050505
-!*foreground: #999999
-!!Black
-!*color0: #0f0f0f
-!*color8: #292929
-!!Red
-!*color1: #2f4d80
-!*color9: #7791e0
-!!Green
-!*color2: #424242
-!*color10: #828a8c
-!!Yellow
-!*color3: #6b8ba3
-!*color11: #8ebdde
-!!Blue
-!*color4: #273a87
-!*color12: #3955c4
-!!Magenta
-!*color5: #74637d
-!*color13: #927d9e
-!!Cyan
-!*color6: #556c85
-!*color14: #6e98b8
-!White
-!*color7: #c0c0c0
-!*color15: #ffffff
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-!Black
-!*color0: #343639
-!*color8: #404040
-!!Red
-!!*color1: #2f4d80
-!*color1: #2f468e
-!*color9: #7791e0
-!!Green
-!*color2: #424242
-!*color10: #828a8c
-!!Yellow
-!*color3: #6b8ba3
-!*color11: #8ebdde
-!!Blue
-!!*color4: #273a87
-!*color4: #1c4582
-!!*color12: #3955c4
-!*color12: #5365a6
-!!Magenta
-!*color5: #74637d
-!*color13: #927d9e
-!!Cyan
-!*color6: #556c85
-!*color14: #6e98b8
-!!White
-!*color7: #b2b2b2
-!*color15: #bdbdbd
-
-!}}}
-
+!{{{ Colours
+ 
+*background: t_background
+*foreground: t_foreground
+! black
+*color0: t_current_line
+*color8: t_selection
+! red
+*color1: #A54242
+*color9: t_red
+! green
+*color2: #8C9440
+*color10: t_green
+! yellow
+*color3: t_orange
+*color11: t_yellow
+! blue
+*color4: #5F819D
+*color12: t_blue
+! magenta
+*color5: #85678F
+*color13: t_purple
+! cyan
+*color6: #5E8D87
+*color14: t_aqua
+! white
+*color7: t_comment
+*color15: t_foreground
 !}}}
 
 !{{{ X Apps
@@ -293,6 +191,6 @@ xfontsel.pane.fieldBox.MenuButton.shapeStyle:    rectangle
 !}}}
 
 !{{{ Xcursor
-Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.theme: Obsidian
 Xcursor.size: 13
 !}}}
