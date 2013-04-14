@@ -192,5 +192,5 @@ xfontsel.pane.fieldBox.MenuButton.shapeStyle:    rectangle
 
 !{{{ Xcursor
 Xcursor.theme: Obsidian
-Xcursor.size: 13
+Xcursor.size: 10
 !}}}
