@@ -1,3 +1,15 @@
 #bashrc includes for Soma
 
 alias redwm='sed -i '/md5sums/,/-End/d' PKGBUILD; makepkg -g >> PKGBUILD; makepkg -fi'
+
+#Overwrite PROMPT_COMMAND settings (titles for grid select in Xmonad)
+case ${TERM} in
+  xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s:%s\007" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+    
+    ;;  
+  screen)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s:%s\033\\" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+    ;;  
+esac
+
