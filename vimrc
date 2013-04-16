@@ -1,15 +1,11 @@
 " -----------------------------------------------------------------------------  
 " |                                                                           |
 " | Some highlights:                                                          |
-" |   jj = <esc>  Very useful for keeping your hands on the home row          |
 " |   ,n = toggle NERDTree off and on                                         |
 " |                                                                           |
 " |   ,f = fuzzy find all files                                               |
 " |   ,b = fuzzy find in all buffers                                          |
 " |   ,p = go to previous file                                                |
-" |                                                                           |
-" |   hh = inserts '=>'                                                       |
-" |   aa = inserts '@'                                                        |
 " |                                                                           |
 " |   ,h = new horizontal window                                              |
 " |   ,v = new vertical window                                                |
@@ -19,7 +15,7 @@
 " |   enter and shift-enter = adds a new line after/before the current line   |
 " |                                                                           |
 " |   :call Tabstyle_tabs = set tab to real tabs                              |
-" |   :call Tabstyle_spaces = set tab to 2 spaces                             |
+" |   :call Tabstyle_spaces = set tab to 8 spaces (Haskell style)             |
 " |                                                                           |
 " | Put machine/user specific settings in ~/.vimrc.local                      |
 " -----------------------------------------------------------------------------  
@@ -27,7 +23,6 @@
 
 set nocompatible
 let mapleader = ","  " TODO: fix this (before pg 100 somewhere)
-" imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 execute pathogen#infect()  
 
 " Tabs ************************************************************************
@@ -46,7 +41,7 @@ function! Tabstyle_tabs()
 endfunction
 
 function! Tabstyle_spaces()
-  " Use 2 spaces
+  " Use 8 spaces
   set softtabstop=8
   set shiftwidth=8
   set tabstop=8
@@ -64,6 +59,59 @@ set si " smartindent (local to buffer)
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
+
+" Title  **********************************************************************
+set title
+auto BufEnter * let &titlestring = s:MyTitle()
+
+if &term =~ 'screen\(\.\(xterm\|rxvt\)\(-\(256\)\?color\)\?\)\?'
+  " Set the screen title using the vim "iconstring"."
+  set t_IS=^[k
+  set t_IE=^[\
+  set icon
+  auto BufEnter * let &iconstring = &titlestring
+  " Set the xterm title using the vim "titlestring"."
+  set t_ts=^[]2;
+  set t_fs=^G
+endif
+
+" Perform zsh-like prompt expansion using the template {prompt}.  See
+" "EXPANSION OF PROMPT SEQUENCES" in zshmisc(1).
+function s:ZshPromptExpn(prompt)
+  if &shell == "/bin/zsh"
+    return system("print -Pn " . shellescape(a:prompt))
+  else
+    " Fallback to poor man's prompt expansion.
+    " By no means equivalent to zsh.
+    let idx = 0
+    let result = ''
+    let escapere = '%\([%)m]\|\(\(-\?[0-9]\+\)\?[~]\)\)'
+    while idx < len(a:prompt)
+      let nextesc = match(a:prompt, escapere, idx)
+      if nextesc < 0
+        let result .= a:prompt[idx :]
+        break
+      elseif idx < nextesc
+        let result .= a:prompt[idx : (nextesc - 1)]
+      endif
+
+      let idx = matchend(a:prompt, escapere, nextesc)
+      let esc = a:prompt[nextesc : (idx - 1)]
+      if esc == '%m'
+        let result .= substitute(hostname(), '^\([^.]*\).*', '\1', '')
+      elseif esc =~ '%-\?[0-9]*[~]'
+        let result .= fnamemodify(getcwd(), ':~')[:-1]
+      elseif esc == '%%'
+        let result .= '%'
+      endif
+    endwhile
+    return result
+endfunction
+
+function s:MyTitle()
+  return s:ZshPromptExpn("%m:%-3~ ") .
+  \ v:progname . " " . fnamemodify(expand("%:f"), ":.")
+endfunction
 
 
 " Windows *********************************************************************
