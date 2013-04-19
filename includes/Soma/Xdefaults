@@ -1,17 +1,24 @@
 ! vim: ft=xdefaults
 
-#define t_background #1D1F21
-#define t_current_line #282A2E
-#define t_selection #373B41
-#define t_foreground #C5C8C6
-#define t_comment #707880
-#define t_red #CC6666
-#define t_orange #DE935F
-#define t_yellow #F0C674
-#define t_green #B5BD68
-#define t_aqua #8ABEB7
-#define t_blue #81A2BE
-#define t_purple #B294BB
+! Apoklinon colours
+#define a_div01 #9E0142 
+#define a_div02 #D53E4F
+#define a_div03 #F46D43
+#define a_div04 #FDAE61
+#define a_div05 #FEE08B
+#define a_div06 #FFFFBF
+#define a_div07 #E6F598
+#define a_div08 #ABDDA4
+#define a_div09 #66C2A5
+#define a_div10 #3288BD
+#define a_div11 #5E4FA2
+
+#define a_bw01  #E0E0E0
+#define a_bw02  #BABABA
+#define a_bw03  #878787
+#define a_bw04  #4D4D4D
+#define a_bw05  #1A1A1A
+
 
 !{{{ Font
 Xft.dpi: 96
@@ -78,33 +85,37 @@ URxvt.matcher.rend.0: fg7
 !}}}
 
 !{{{ Colours
- 
-*background: t_background
-*foreground: t_foreground
-! black
-*color0: t_current_line
-*color8: t_selection
-! red
-*color1: #A54242
-*color9: t_red
-! green
-*color2: #8C9440
-*color10: t_green
-! yellow
-*color3: t_orange
-*color11: t_yellow
-! blue
-*color4: #5F819D
-*color12: t_blue
-! magenta
-*color5: #85678F
-*color13: t_purple
-! cyan
-*color6: #5E8D87
-*color14: t_aqua
-! white
-*color7: t_comment
-*color15: t_foreground
+! using a divergent colourmap like apoklinon, 
+! base colours are their compliment rather than a brighter / darker pair 
+! TODO: Check this is actually a useful way of doing this...
+
+*background: a_bw05
+*foreground: a_bw01
+
+! Onyx / Liver
+*color0: a_bw05
+*color8: a_bw04
+! Jazzberry Jam / Dark Lavender
+*color1: a_div01
+*color9: a_div11
+! Brick Red / Tufts Blue
+*color2: a_div02
+*color10: a_div10
+! Outrageous Orange / Medium Aquamarine
+*color3: a_div03
+*color11: a_div09
+! Sandy Brown / Granny Smith Apple
+*color4: a_div04
+*color12: a_div08
+! Flavescent / Light Khaki
+*color5: a_div05
+*color13: a_div07
+! Lemon Chiffon / Taupe Gray
+*color6: a_div06
+*color14: a_bw03
+! Platinum / Gray
+*color7: a_bw01
+*color15: a_bw02
 !}}}
 
 !{{{ X Apps
@@ -192,5 +203,5 @@ xfontsel.pane.fieldBox.MenuButton.shapeStyle:    rectangle
 
 !{{{ Xcursor
 Xcursor.theme: Obsidian
-Xcursor.size: 10
+Xcursor.size: 48
 !}}}
