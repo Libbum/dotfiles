@@ -62,6 +62,10 @@ for file in $specfiles; do
       ln -s $dir/includes/$host/$file ~/.$file
   fi
 done
+
+echo "Updating any submodules ..."
+git submodule foreach git pull origin master
+
 echo "Setup complete."
 
 #Below will be usefull later when I get around to moving to zsh

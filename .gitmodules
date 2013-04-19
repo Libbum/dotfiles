@@ -1,3 +1,9 @@
 [submodule "vim/bundle/apoklinon"]
 	path = vim/bundle/apoklinon
 	url = Github:Libbum/vim-apoklinon.git
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = Github:airblade/vim-gitgutter
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = Github:tpope/vim-markdown

@@ -6,4 +6,6 @@
 [merge]
 	tool = vimdiff
 [color]
-	ui = auto
+        ui = auto
+[alias]
+        smp = "submodule foreach git pull origin master"
