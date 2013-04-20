@@ -3,25 +3,24 @@
 
 colors=($(xrdb -query | sed -n 's/.*color\([0-9]\)/\1/p' | sort -nu | cut -f2))
 
-diverge=($colors[2] $colors[3] $colors[4] $colors[5] $colors[6] $colors[7] $colors[14] $colors[13] $colors[12] $colors[11] $colors[10]) 
-mono=($colors[8] $colors[16] $colors[15] $colors[9] $colors[1]) 
+diverge=($colors[2] $colors[10] $colors[4] $colors[13] $colors[11] $colors[14] $colors[12] $colors[3] $colors[7] $colors[5] $colors[6]) 
+mono=($colors[8] $colors[16] $colors[15] $colors[1] $colors[9]) 
 
+echo -e "\e[33m                                                   αποκλίνων colour map\e[0m"
 echo -e "\e[1;37m
-                                                   αποκλίνων colour map
-
                                                     DIVERGING SPECTRUM
 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m"
 echo -en "\e[31m █ $diverge[1] \e[0m";
-echo -en "\e[32m █ $diverge[2] \e[0m";
+echo -en "\e[1;31m █ $diverge[2] \e[0m";
 echo -en "\e[33m █ $diverge[3] \e[0m";
-echo -en "\e[34m █ $diverge[4] \e[0m";
-echo -en "\e[35m █ $diverge[5] \e[0m";
-echo -en "\e[36m █ $diverge[6] \e[0m";
-echo -en "\e[1;35m █ $diverge[7] \e[0m";
-echo -en "\e[1;34m █ $diverge[8] \e[0m";
-echo -en "\e[1;33m █ $diverge[9] \e[0m";
-echo -en "\e[1;32m █ $diverge[10] \e[0m";
-echo -en "\e[1;31m █ $diverge[11] \e[0m"; echo
+echo -en "\e[1;34m █ $diverge[4] \e[0m";
+echo -en "\e[1;32m █ $diverge[5] \e[0m";
+echo -en "\e[1;35m █ $diverge[6] \e[0m";
+echo -en "\e[1;33m █ $diverge[7] \e[0m";
+echo -en "\e[32m █ $diverge[8] \e[0m";
+echo -en "\e[36m █ $diverge[9] \e[0m";
+echo -en "\e[34m █ $diverge[10] \e[0m";
+echo -en "\e[35m █ $diverge[11] \e[0m"; echo
 
 
 echo -e "\e[1;37m
@@ -30,7 +29,7 @@ echo -e "\e[1;37m
 echo -en "                                 \e[37m █ $mono[1] \e[0m";
 echo -en "\e[1;37m █ $mono[2] \e[0m";
 echo -en "\e[1;36m █ $mono[3] \e[0m";
-echo -en "\e[1;30m █ $mono[4] \e[0m";
-echo -en "\e[30m █ $mono[5] \e[0m"; echo
+echo -en "\e[30m █ $mono[4] \e[0m";
+echo -en "\e[1;30m █ $mono[5] \e[0m"; echo
 
 

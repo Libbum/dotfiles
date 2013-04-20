@@ -88,25 +88,22 @@ alias vi='vim'
 
 # Apoklinon colours:
 reset="\[\033[0m\]"
-onyx="\[\033[30m\]"
+onyx="\[\033[1;30m\]"
 jazzberry="\[\033[31m\]"
-brick="\[\033[32m\]"
+brick="\[\033[1;31m\]"
 orange="\[\033[33m\]"
-sandy="\[\033[34m\]"
-flavescent="\[\033[35m\]"
-lemon="\[\033[36m\]"
+sandy="\[\033[1;34m\]"
+flavescent="\[\033[1;32m\]"
+lemon="\[\033[1;33m\]"
 platinum="\[\033[37m\]"
-liver="\[\033[1;30m\]"
-lavender="\[\033[1;31m\]"
-blue="\[\033[1;32m\]"
-aqua="\[\033[1;33m\]"
-apple="\[\033[1;34m\]"
-khaki="\[\033[1;35m\]"
+liver="\[\033[30m\]"
+lavender="\[\033[35m\]"
+blue="\[\033[34m\]"
+aqua="\[\033[36m\]"
+apple="\[\033[32m\]"
+khaki="\[\033[1;33m\]"
 taupe="\[\033[1;36m\]"
 gray="\[\033[1;37m\]"
-
-#256, non bold
-liver256="\[\033[38;5;236m\]"
 
 
 function ii()   # Get current host related info.
@@ -204,7 +201,7 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-export PS1=$liver256$Host$reset'$(git branch &>/dev/null;\
+export PS1=$liver$Host$reset'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
