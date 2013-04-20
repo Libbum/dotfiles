@@ -49,7 +49,7 @@ fi
 #nf_bashrc_sourced=YES
 
 eval `dircolors -b $HOME/.dir_colors`
-export GREP_OPTIONS='--color=auto' GREP_COLOR='01;38;5;61'
+export GREP_OPTIONS='--color=auto' GREP_COLOR='01;32' #If Xdefaults, Tufts Blue; else bold green
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
@@ -81,14 +81,42 @@ alias vi='vim'
 # type \ls 
 
 
+# COLOURS
+#######################################################
+# For now, let's assume XDefaults (may not be the best 
+# idea - will need to check Vayu etc)
+
+# Apoklinon colours:
+reset="\[\033[0m\]"
+onyx="\[\033[30m\]"
+jazzberry="\[\033[31m\]"
+brick="\[\033[32m\]"
+orange="\[\033[33m\]"
+sandy="\[\033[34m\]"
+flavescent="\[\033[35m\]"
+lemon="\[\033[36m\]"
+platinum="\[\033[37m\]"
+liver="\[\033[1;30m\]"
+lavender="\[\033[1;31m\]"
+blue="\[\033[1;32m\]"
+aqua="\[\033[1;33m\]"
+apple="\[\033[1;34m\]"
+khaki="\[\033[1;35m\]"
+taupe="\[\033[1;36m\]"
+gray="\[\033[1;37m\]"
+
+#256, non bold
+liver256="\[\033[38;5;236m\]"
+
+
 function ii()   # Get current host related info.
 {
-    echo -e "\nYou are logged on ${COLOR_RED}$HOST"
-    echo -e "\nAdditionnal information:$COLOR_NC " ; uname -a
-    echo -e "\n${COLOR_RED}Users logged on:$COLOR_NC " ; w -h
-    echo -e "\n${COLOR_RED}Current date :$COLOR_NC " ; date
-    echo -e "\n${COLOR_RED}Machine stats :$COLOR_NC " ; uptime
-    echo -e "\n${COLOR_RED}Memory stats :$COLOR_NC " ; free
+    echo -e "\nYou are logged on ${jazzberry}$HOST"
+    echo -e "\nAdditionnal information:$reset " ; uname -a
+    echo -e "\n${jazzberry}Users logged on:$reset " ; w -h
+    echo -e "\n${jazzberry}Current date :$reset " ; date
+    echo -e "\n${jazzberry}Machine stats :$reset " ; uptime
+    echo -e "\n${jazzberry}Memory stats :$reset " ; free
     echo
 }
 
@@ -176,19 +204,19 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-export PS1=$IBlack$Host$Color_Off'$(git branch &>/dev/null;\
+export PS1=$liver256$Host$reset'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
         # @4 - Clean repository - nothing to commit
-        echo "'$Green'"$(__git_ps1 " (%s)"); \
+        echo "'$blue'"$(__git_ps1 " (%s)"); \
     else \
        # @5 - Changes to working tree
-       echo "'$IRed'"$(__git_ps1 " {%s}"); \
-    fi) '$BYellow$PathShort$Color_Off'\$ "; \
+       echo "'$brick'"$(__git_ps1 " {%s}"); \
+    fi) '$sandy$PathShort$reset'\$ "; \
 else \
    # @2 - Prompt when not in GIT repo
-   echo " '$Yellow$PathShort$Color_Off'\$ "; \
+   echo " '$flavescent$PathShort$reset'\$ "; \
 fi)'
 
 
