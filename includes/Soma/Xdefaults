@@ -92,28 +92,28 @@ URxvt.matcher.rend.0: fg7
 *background: a_bw05
 *foreground: a_bw01
 
-! Onyx / Liver
+! Onyx (16) / Liver (59)
 *color0: a_bw05
 *color8: a_bw04
-! Jazzberry Jam / Dark Lavender
+! Jazzberry Jam (125) / Dark Lavender (61)
 *color1: a_div01
 *color9: a_div11
-! Brick Red / Tufts Blue
+! Brick Red (167) / Tufts Blue (67)
 *color2: a_div02
 *color10: a_div10
-! Outrageous Orange / Medium Aquamarine
+! Outrageous Orange (203) / Medium Aquamarine (73)
 *color3: a_div03
 *color11: a_div09
-! Sandy Brown / Granny Smith Apple
+! Sandy Brown (215) / Granny Smith Apple (151)
 *color4: a_div04
 *color12: a_div08
-! Flavescent / Light Khaki
+! Flavescent (222) / Light Khaki (192)
 *color5: a_div05
 *color13: a_div07
-! Lemon Chiffon / Taupe Gray
+! Lemon Chiffon (229) / Taupe Gray (102)
 *color6: a_div06
 *color14: a_bw03
-! Platinum / Gray
+! Platinum (188) / Gray (145)
 *color7: a_bw01
 *color15: a_bw02
 !}}}
