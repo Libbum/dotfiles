@@ -91,7 +91,7 @@ URxvt.matcher.rend.0: fg7
 *background: a_bw05
 *foreground: a_bw01
 
-! Davy's Gray (240) / Onyx (235)
+! Davys Gray (240) / Onyx (235)
 *color0: a_bw04
 *color8: a_bw05
 ! Jazzberry Jam (125) / Brick Red (167) 

@@ -95,15 +95,15 @@ orange="\[\033[33m\]"
 sandy="\[\033[1;34m\]"
 flavescent="\[\033[1;32m\]"
 lemon="\[\033[1;33m\]"
-platinum="\[\033[37m\]"
-liver="\[\033[30m\]"
+lgray="\[\033[37m\]"
+davgray="\[\033[30m\]"
 lavender="\[\033[35m\]"
 blue="\[\033[34m\]"
 aqua="\[\033[36m\]"
 apple="\[\033[32m\]"
 khaki="\[\033[1;33m\]"
-taupe="\[\033[1;36m\]"
-gray="\[\033[1;37m\]"
+gray="\[\033[1;36m\]"
+dgray="\[\033[1;37m\]"
 
 
 function ii()   # Get current host related info.
@@ -117,29 +117,6 @@ function ii()   # Get current host related info.
     echo
 }
 
-
-# Reset
-Color_Off="\[\033[0m\]"       # Text Reset
-
-# Regular Colors
-Black="\[\033[0;30m\]"        # Black
-Red="\[\033[0;31m\]"          # Red
-Green="\[\033[0;32m\]"        # Green
-Yellow="\[\033[0;33m\]"       # Yellow
-Blue="\[\033[0;34m\]"         # Blue
-Purple="\[\033[0;35m\]"       # Purple
-Cyan="\[\033[0;36m\]"         # Cyan
-White="\[\033[0;37m\]"        # White
-
-# Bold
-BBlack="\[\033[1;30m\]"       # Black
-BRed="\[\033[1;31m\]"         # Red
-BGreen="\[\033[1;32m\]"       # Green
-BYellow="\[\033[1;33m\]"      # Yellow
-BBlue="\[\033[1;34m\]"        # Blue
-BPurple="\[\033[1;35m\]"      # Purple
-BCyan="\[\033[1;36m\]"        # Cyan
-BWhite="\[\033[1;37m\]"       # White
 
 # Underline
 UBlack="\[\033[4;30m\]"       # Black
@@ -201,7 +178,7 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-export PS1=$liver$Host$reset'$(git branch &>/dev/null;\
+export PS1=$davgray$Host$reset'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
@@ -213,7 +190,7 @@ if [ $? -eq 0 ]; then \
     fi) '$sandy$PathShort$reset'\$ "; \
 else \
    # @2 - Prompt when not in GIT repo
-   echo " '$flavescent$PathShort$reset'\$ "; \
+   echo " '$aqua$PathShort$reset'\$ "; \
 fi)'
 
 
