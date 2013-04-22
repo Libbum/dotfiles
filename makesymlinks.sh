@@ -64,7 +64,9 @@ for file in $specfiles; do
 done
 
 echo "Updating any submodules ..."
+cd $dir
 git submodule foreach git pull origin master
+cd ..
 
 echo "Setup complete."
 

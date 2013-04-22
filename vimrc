@@ -23,7 +23,13 @@
 
 set nocompatible
 let mapleader = ","  " TODO: fix this (before pg 100 somewhere)
-execute pathogen#infect()  
+execute pathogen#infect() 
+
+
+" Read in Local Overrides
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
@@ -139,7 +145,9 @@ set smartcase " Ignore case when searching lowercase
 set t_Co=256 " 256 colors
 set background=dark 
 syntax on " syntax highlighting
-let g:apoklinon_use_Xresources = 1
+if !exists("g:apoklinon_use_Xresources")
+   let g:apoklinon_use_Xresources = 1
+endif
 colorscheme apoklinon
 
 
@@ -367,9 +375,6 @@ map <Leader>rs :RS<CR>
 " -----------------------------------------------------------------------------  
 " |                               Host specific                               |
 " -----------------------------------------------------------------------------  
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
 
 "if hostname() == "foo"
   " do something
