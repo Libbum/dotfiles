@@ -48,8 +48,88 @@ fi
 
 #nf_bashrc_sourced=YES
 
+# COLOURS
+#######################################################
+
+# Apoklinon colours:
+resetp="\[\033[0m\]"
+export reset="\e[0m"
+
+if [[ -f ~/.Xdefaults ]]; then
+   #normal Colours for scripts
+   export onyx="\e[1;30m"
+   export jazzberry="\e[31m"
+   export brick="\e[1;31m"
+   export orange="\e[33m"
+   export sandy="\e[1;34m"
+   export flavescent="\e[1;32m"
+   export lemon="\e[1;33m"
+   export lgray="\e[37m"
+   export davgray="\e[30m"
+   export lavender="\e[35m"
+   export blue="\e[34m"
+   export aqua="\e[36m"
+   export apple="\e[32m"
+   export khaki="\e[1;33m"
+   export gray="\e[1;36m"
+   export dgray="\e[1;37m"
+   #Escaped Colours for prompt
+   onyxp="\[\033[1;30m\]"
+   jazzberryp="\[\033[31m\]"
+   brickp="\[\033[1;31m\]"
+   orangep="\[\033[33m\]"
+   sandyp="\[\033[1;34m\]"
+   flavescentp="\[\033[1;32m\]"
+   lemonp="\[\033[1;33m\]"
+   lgrayp="\[\033[37m\]"
+   davgrayp="\[\033[30m\]"
+   lavenderp="\[\033[35m\]"
+   bluep="\[\033[34m\]"
+   aquap="\[\033[36m\]"
+   applep="\[\033[32m\]"
+   khakip="\[\033[1;33m\]"
+   grayp="\[\033[1;36m\]"
+   dgrayp="\[\033[1;37m\]"
+else
+   #normal Colours for scripts
+   export onyx="\e[38;5;235m"
+   export jazzberry="\e[38;5;125m"
+   export brick="\e[38;5;167m"
+   export orange="\e[38;5;203m"
+   export sandy="\e[38;5;215m"
+   export flavescent="\e[38;5;222m"
+   export lemon="\e[38;5;229m"
+   export lgray="\e[38;5;252m"
+   export davgray="\e[38;5;240m"
+   export lavender="\e[38;5;61m"
+   export blue="\e[38;5;67m"
+   export aqua="\e[38;5;73m"
+   export apple="\e[38;5;151m"
+   export khaki="\e[38;5;192m"
+   export gray="\e[38;5;244m"
+   export dgray="\e[38;5;248m"
+   #Escaped Colours for scripts
+   onyxp="\[\033[38;5;235m\]"
+   jazzberryp="\[\033[38;5;125m\]"
+   brickp="\[\033[38;5;167m\]"
+   orangep="\[\033[38;5;203m\]"
+   sandyp="\[\033[38;5;215m\]"
+   flavescentp="\[\033[38;5;222m\]"
+   lemonp="\[\033[38;5;229m\]"
+   lgrayp="\[\033[38;5;252m\]"
+   davgrayp="\[\033[38;5;240m\]"
+   lavenderp="\[\033[38;5;61m\]"
+   bluep="\[\033[38;5;67m\]"
+   aquap="\[\033[38;5;73m\]"
+   applep="\[\033[38;5;151m\]"
+   khakip="\[\033[38;5;192m\]"
+   grayp="\[\033[38;5;244m\]"
+   dgrayp="\[\033[38;5;248m\]"
+fi
+
 eval `dircolors -b $HOME/.dir_colors`
-export GREP_OPTIONS='--color=auto' GREP_COLOR='01;32' #If Xdefaults, Tufts Blue; else bold green
+blueg=${blue#\\e[}
+export GREP_OPTIONS='--color=auto' GREP_COLOR=${blueg%m}
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
@@ -80,49 +160,6 @@ alias vi='vim'
 # EG:  the ls command is aliased, but to use the normal ls command you would 
 # type \ls 
 
-
-# COLOURS
-#######################################################
-# For now, let's assume XDefaults (may not be the best 
-# idea - will need to check Vayu etc)
-
-# Apoklinon colours:
-reset="\[\033[0m\]"
-if [[ -f ~/.Xdefaults ]]; then
-   onyx="\[\033[1;30m\]"
-   jazzberry="\[\033[31m\]"
-   brick="\[\033[1;31m\]"
-   orange="\[\033[33m\]"
-   sandy="\[\033[1;34m\]"
-   flavescent="\[\033[1;32m\]"
-   lemon="\[\033[1;33m\]"
-   lgray="\[\033[37m\]"
-   davgray="\[\033[30m\]"
-   lavender="\[\033[35m\]"
-   blue="\[\033[34m\]"
-   aqua="\[\033[36m\]"
-   apple="\[\033[32m\]"
-   khaki="\[\033[1;33m\]"
-   gray="\[\033[1;36m\]"
-   dgray="\[\033[1;37m\]"
-else
-   onyx="\[\033[38;5;235m\]"
-   jazzberry="\[\033[38;5;125m\]"
-   brick="\[\033[38;5;167m\]"
-   orange="\[\033[38;5;203m\]"
-   sandy="\[\033[38;5;215m\]"
-   flavescent="\[\033[38;5;222m\]"
-   lemon="\[\033[38;5;229m\]"
-   lgray="\[\033[38;5;252m\]"
-   davgray="\[\033[38;5;240m\]"
-   lavender="\[\033[38;5;61m\]"
-   blue="\[\033[38;5;67m\]"
-   aqua="\[\033[38;5;73m\]"
-   apple="\[\033[38;5;151m\]"
-   khaki="\[\033[38;5;192m\]"
-   gray="\[\033[38;5;244m\]"
-   dgray="\[\033[38;5;248m\]"
-fi
 
 function ii()   # Get current host related info.
 {
@@ -196,19 +233,19 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-export PS1=$davgray$Host$reset'$(git branch &>/dev/null;\
+export PS1=$davgrayp$Host$resetp'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
         # @4 - Clean repository - nothing to commit
-        echo "'$blue'"$(__git_ps1 " (%s)"); \
+        echo "'$bluep'"$(__git_ps1 " (%s)"); \
     else \
        # @5 - Changes to working tree
-       echo "'$brick'"$(__git_ps1 " {%s}"); \
-    fi) '$sandy$PathShort$reset'\$ "; \
+       echo "'$brickp'"$(__git_ps1 " {%s}"); \
+    fi) '$sandyp$PathShort$resetp'\$ "; \
 else \
    # @2 - Prompt when not in GIT repo
-   echo " '$aqua$PathShort$reset'\$ "; \
+   echo " '$aquap$PathShort$resetp'\$ "; \
 fi)'
 
 
