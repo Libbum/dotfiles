@@ -55,10 +55,10 @@ fi
 resetp="\[\033[0m\]"
 export reset="\e[0m"
 
-read -n5 -t1 -s -p `echo -en "\005"` putty
+read -n7 -t1 -s -p `echo -en "\005"` putty
 
 #if [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]]; then #Make sure we're local before using .Xdefaults
-if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]] ) || ( [[ "$SSH_CONNECTION" ]] && [[ "$putty" == "ApokP" ]] ); then #Make sure we're local before using .Xdefaults
+if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]] ) || ( [[ "$SSH_CONNECTION" ]] && [[ "$putty" == "ApokPuT" ]] ); then #Make sure we're local before using .Xdefaults
    #normal Colours for scripts
    export onyx="\e[1;30m"
    export jazzberry="\e[31m"

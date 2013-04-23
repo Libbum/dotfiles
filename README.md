@@ -23,4 +23,4 @@ TODO
 - [ ] Move Xdefaults to Xresources
 - [X] Really not a fan of the hybrid color scheme, molokai is nice, but too bright. Need a new one. [Now using [αποκλίνων](https://github.com/Libbum/vim-apoklinon)]
 - [ ] Fork vim-markdown
-- [ ] Fix answerback for urxvt
+- [X] Fix answerback for urxvt [Increased read length to 7. Update Putty answerback to "ApokPuT"]
