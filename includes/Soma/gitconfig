@@ -5,6 +5,9 @@
 	default = matching
 [merge]
 	tool = vimdiff
+[diff]
+        tool = vimdiff
+
 [color]
         ui = auto
 [alias]

@@ -5,3 +5,6 @@
 	ui = auto
 [alias]
         smp = "submodule foreach git pull origin master"
+[diff]
+        tool = vimdiff
+

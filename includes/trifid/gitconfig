@@ -3,3 +3,5 @@
 	email = timothy.dubois@rmit.edu.au
 [color]
 	ui = auto
+[diff]
+        tool = vimdiff
