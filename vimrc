@@ -25,12 +25,6 @@ set nocompatible
 let mapleader = ","  " TODO: fix this (before pg 100 somewhere)
 execute pathogen#infect() 
 
-
-" Read in Local Overrides
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
 
@@ -137,17 +131,12 @@ set splitbelow splitright
 " Searching *******************************************************************
 set hlsearch  " highlight search
 set incsearch  " Incremental search, search as you type
-set ignorecase " Ignore case when searching 
-set smartcase " Ignore case when searching lowercase
-
 
 " Colors **********************************************************************
 set t_Co=256 " 256 colors
 set background=dark 
 syntax on " syntax highlighting
-if !exists("g:apoklinon_use_Xresources")
-   let g:apoklinon_use_Xresources = 1
-endif
+let g:apoklinon_use_Xresources = $apoklinonRGB
 colorscheme apoklinon
 
 
@@ -346,44 +335,17 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 map <Leader>ra :AS<CR>
 map <Leader>rs :RS<CR>
 
-
-" -----------------------------------------------------------------------------  
-" |                             OS Specific                                   |
-" |                      (GUI stuff goes in gvimrc)                           |
-" -----------------------------------------------------------------------------  
-
-" Mac *************************************************************************
-"if has("mac") 
-  "" 
-"endif
- 
-" Windows *********************************************************************
-"if has("gui_win32")
-  "" 
-"endif
-
-
-
 " -----------------------------------------------------------------------------  
 " |                               Startup                                     |
 " -----------------------------------------------------------------------------  
 " Open NERDTree on start
 "autocmd VimEnter * exe 'NERDTree' | wincmd l 
 
-
-
 " -----------------------------------------------------------------------------  
 " |                               Host specific                               |
 " -----------------------------------------------------------------------------  
 
-"if hostname() == "foo"
-  " do something
-"endif
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 
-" Example .vimrc.local:
-
-"call Tabstyle_tabs()
-"colorscheme ir_dark
-"match LongLineWarning '\%120v.*'
-
-"autocmd User ~/git/some_folder/* call Tabstyle_spaces() | let g:force_xhtml=1

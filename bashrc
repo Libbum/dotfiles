@@ -59,6 +59,7 @@ read -n7 -t1 -s -p `echo -en "\005"` putty
 
 #if [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]]; then #Make sure we're local before using .Xdefaults
 if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]] ) || ( [[ "$SSH_CONNECTION" ]] && [[ "$putty" == "ApokPuT" ]] ); then #Make sure we're local before using .Xdefaults
+   export apoklinonRGB=1
    #normal Colours for scripts
    export onyx="\e[1;30m"
    export jazzberry="\e[31m"
@@ -94,6 +95,7 @@ if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]] ) || ( [[ "$SSH_CONNECTI
    grayp="\[\033[1;36m\]"
    dgrayp="\[\033[1;37m\]"
 else
+   export apoklinonRGB=0
    #normal Colours for scripts
    export onyx="\e[38;5;235m"
    export jazzberry="\e[38;5;125m"
