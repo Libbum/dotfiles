@@ -56,10 +56,10 @@ URxvt*urgentOnBell: True
 URxvt*colorMode: on
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: false
-URxvt*cursorColor: #ffaf5f
-URxvt*underlineColor: #5a667f
-URxvt*highlightColor: #5a667f
-URxvt*highlightTextColor: #000000
+URxvt*cursorColor: a_div03
+URxvt*underlineColor: a_bw04
+URxvt*highlightColor: a_bw05
+URxvt*highlightTextColor: a_div03
 URxvt*scrollBar: false
 URxvt*borderless: true
 URxvt.saveLines: 10000
