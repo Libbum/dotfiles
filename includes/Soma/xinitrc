@@ -2,6 +2,7 @@
 
 systemd --user & #run systemd as user instance
 /home/genesis/.scripts/wpchanger #Starts nitrogen, in a manner that allows a cron job to change the wallpaper randomly
+dropboxd
 
 case $1 in
 dwm)
