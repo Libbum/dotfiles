@@ -20,7 +20,7 @@ TODO
 - [ ] Fenchurch's dir_colours is massive compared to Soma's. Check if any of it is wanted before killing it off
 - [X] Switch to 256 colours if loggin in externally to Soma
 - [X] Look in to putty colour overrides.
-- [ ] Move Xdefaults to Xresources
+- [X] Move Xdefaults to Xresources
 - [X] Really not a fan of the hybrid color scheme, molokai is nice, but too bright. Need a new one. [Now using [αποκλίνων](https://github.com/Libbum/vim-apoklinon)]
-- [ ] Fork vim-markdown
+- [X] Fork vim-markdown [Added liquid submodule instead, may need to add a few more Octopress markups]
 - [X] Fix answerback for urxvt [Increased read length to 7. Update Putty answerback to "ApokPuT"]

@@ -11,7 +11,7 @@ dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 folders="vim scripts"             # list of directories to symlink to homedir
 files="bash_profile bashrc dir_colors tmux.conf vimrc"    # list of file to symlink in homedir
-specfiles="xinitrc Xdefaults vimrc.local gitconfig"  # system specific files, these do not have to exist
+specfiles="xinitrc Xresources vimrc.local gitconfig"  # system specific files, these do not have to exist
 #TODO: Sort this out so it just finds the files rather than having to list them
 ##########
 

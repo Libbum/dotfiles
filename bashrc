@@ -57,8 +57,8 @@ export reset="\e[0m"
 
 read -n7 -t1 -s -p `echo -en "\005"` putty
 
-#if [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]]; then #Make sure we're local before using .Xdefaults
-if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xdefaults ]] ) || ( [[ "$SSH_CONNECTION" ]] && [[ "$putty" == "ApokPuT" ]] ); then #Make sure we're local before using .Xdefaults
+#if [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xresources ]]; then #Make sure we're local before using .Xresources
+if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xresources ]] ) || ( [[ "$SSH_CONNECTION" ]] && [[ "$putty" == "ApokPuT" ]] ); then #Make sure we're local before using .Xresources
    export apoklinonRGB=1
    #normal Colours for scripts
    export onyx="\e[1;30m"
