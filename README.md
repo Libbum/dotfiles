@@ -25,6 +25,7 @@ TODO
 - [X] Fork vim-markdown [Added liquid submodule instead, may need to add a few more Octopress markups]
 - [X] Fix answerback for urxvt [Increased read length to 7. Update Putty answerback to "ApokPuT"]
 - [ ] Get dir_colours in order
+- [X] dir_colors does not need a separate legacy file, if seding out the offending lines and passing the result to dircolors works
 - [ ] vim needs better tab management
 - [ ] rewrite keyboard layout functions to clear both non standard layouts to switch to qwerty, then call other n-s clear function before activating current
 
