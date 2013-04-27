@@ -132,7 +132,13 @@ else
    dgrayp="\[\033[38;5;248m\]"
 fi
 
-eval `dircolors -b $HOME/.dir_colors`
+#Some supercomputing clusters tend to use a dog old version of dir_colors - primarily to piss me off.
+if [ $(echo "$(dircolors --version | head -n1 | awk '{ print $4 }') < 7.5" | bc) -eq 1 ]; then
+    eval `dircolors -b <(sed -e '/RESET/d' -e '/MULTIHARDLINK/d' -e '/CAPABILITY/d' $HOME/.dir_colors)`
+else
+    eval `dircolors -b $HOME/.dir_colors`
+fi
+
 blueg=${blue#\\e[}
 export GREP_OPTIONS='--color=auto' GREP_COLOR=${blueg%m}
 

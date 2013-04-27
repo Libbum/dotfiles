@@ -27,17 +27,7 @@ for file in $files; do
     [ -L ~/.$file ] && rm ~/.$file  #Unlink files that already exist incase of script being run twice (new files, accedental re-runs etc)
     [ -f ~/.$file ] && mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
-    if [ $file == "dir_colors" ]; then
-        #dircolors is a special case because supercomputing clusters tend to use a dog old version - primarily to piss me off.
-        if [ $(echo "$(dircolors --version | head -n1 | awk '{ print $4 }') < 7.5" | bc) -eq 1 ]; then
-            #Problem case, link to the legacy version of dir_colors
-            ln -s $dir/includes/dir_colors.old ~/.$file
-        else
-           ln -s $dir/$file ~/.$file
-        fi
-    else
-       ln -s $dir/$file ~/.$file
-    fi
+    ln -s $dir/$file ~/.$file
 done
 
 
