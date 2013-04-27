@@ -10,7 +10,7 @@ host=${HOSTNAME%%[.0-9]*}       #multiple checks. Remove full domain, remove mul
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 folders="vim scripts"             # list of directories to symlink to homedir
-files="bash_profile bashrc dir_colors tmux.conf vimrc"    # list of file to symlink in homedir
+files="bash_profile bashrc tmux.conf vimrc"    # list of file to symlink in homedir
 specfiles="xinitrc Xresources vimrc.local gitconfig"  # system specific files, these do not have to exist
 #TODO: Sort this out so it just finds the files rather than having to list them
 ##########
@@ -38,7 +38,12 @@ for folder in $folders; do
     ln -s $dir/$folder ~/.$folder
 done
 
-
+#dir_colors. NOTE: This section is specific to my configuration, I suggest you look at my dircolors-apoklinon repo for information
+[ -f ~/.dir_colors ] && mv ~/.dir_colors ~/dotfiles_old
+[ -f ~/.dir_colors.8bit ] && mv ~/.dir_colors.8bit ~/dotfiles_old
+[ -f ~/.dir_colors.RGB ] && mv ~/.dir_colors.RGB ~/dotfiles_old
+ln -s $dir/includes/dir_colors/dir_colors.8bit ~/.dir_colors.8bit
+ln -s $dir/includes/dir_colors/dir_colors.RGB ~/.dir_colors.RGB
 
 echo "Moved any existing dotfiles and folders from ~ to $olddir"
 
