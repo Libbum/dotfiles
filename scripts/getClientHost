@@ -11,9 +11,9 @@ if [ -z "$name" ]; then
     lookup=$(host $client | awk '{ print $NF }')
     lookup=${lookup%.}
     #specific host problems
-    [ "${lookup%[0-9]*}" == "vayu" ] && lookup="vayu.nci.org"
+    [ "${lookup%[0-9]*}" == "vayu" ] && lookup="Vayu"
 
     name=$lookup
 fi
 
-
+echo $name
