@@ -55,11 +55,66 @@ fi
 resetp="\[\033[0m\]"
 export reset="\e[0m"
 
-read -n7 -t1 -s -p `echo -en "\005"` putty
+#Connection location: function to test where I'm logging in from and what fallbacks should be used.
 
-#if [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xresources ]]; then #Make sure we're local before using .Xresources
-if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xresources ]] ) || ( [[ "$SSH_CONNECTION" ]] && [[ "$putty" == "ApokPuT" ]] ); then #Make sure we're local before using .Xresources
-   export apoklinonRGB=1
+# There are a number of possibilites to check, we want to use RGB coloursets as much as possible, but have 256 fallbacks when we cannot.
+# 1. On Soma (or another linux machine) with .Xresources available and running X and a local connection. [RGB]
+# 2. On Soma (or another linux machine) with .Xresources available and running X and a remoting to another machine. [RGB]
+# 3. On Soma (or another linux machine) with .Xresources available but NOT running X and a local (or remote) connection. [256]
+# 4. Using putty with a saved, setup session, remote or local. [RGB]
+# 5. Using putty without a saved session, remote or local. [256]
+function localeCheck() {
+#Check answerback from terminal. Expecting ApokPuT from known putty sessions, ^[[?1;2c from urxvt (at least)
+read -n7 -t1 -s -p `echo -en "\005"` answerBack
+
+#First, are we remote or local?
+if [[ -n "$SSH_CONNECTION" ]]; then
+    # remote
+    
+    #Using RGB enabled putty session?
+    if [[ "$answerBack" == "ApokPuT" ]]; then
+        export apoklinonRGB=1
+    else
+        #either a remote with X, or runlevel!=5 or non RGB putty session
+        #For the moment, I can't figure out a way to check runlevel of the ssh client or find out .Xresources if exists 
+        #without envoking a reverse connection or using sendenv. The former is messy and the latter is locked down for a number 
+        #of machines I have access to.
+        #A sloppy work around follows - assumes either non RGB putty or Soma
+        if [[ "$TERM" == "xterm-256color" ]]; then
+            #I override the xterm variable in local bash_profiles to this of logging in from Soma
+            export apoklinonRGB=1
+        else
+            export apoklinonRGB=0
+        fi  
+    fi  
+else
+    # local
+
+    #Is Xresources available?
+    if [[ -f ~/.Xresources ]]; then
+         # linux machine
+         #Check the runlevel
+         if [[ $(who -r | awk '{print $2}') -eq 5 ]]; then
+             export apoklinonRGB=1
+         else
+             export apoklinonRGB=0
+         fi  
+    else
+        #Using RGB enabled putty session?
+        if [[ "$answerBack" == "ApokPuT" ]]; then
+            export apoklinonRGB=1
+        else
+            #This catches any machine not using a RGB putty enabled session, or linux machines without .Xresources, regardless of runlevel
+            export apoklinonRGB=0
+        fi  
+    fi  
+fi
+}
+
+#call locale to set colour fallback
+localeCheck
+
+if [[ $apoklinonRGB -eq 1 ]]; then
    #normal Colours for scripts
    export onyx="\e[1;30m"
    export jazzberry="\e[31m"
@@ -95,7 +150,6 @@ if ( [[ ! "$SSH_CONNECTION" ]] && [[ -f ~/.Xresources ]] ) || ( [[ "$SSH_CONNECT
    grayp="\[\033[1;36m\]"
    dgrayp="\[\033[1;37m\]"
 else
-   export apoklinonRGB=0
    #normal Colours for scripts
    export onyx="\e[38;5;235m"
    export jazzberry="\e[38;5;125m"
@@ -172,8 +226,7 @@ alias vi='vim'
 # type \ls 
 
 
-function ii()   # Get current host related info.
-{
+function ii() {
     echo -e "\nYou are logged on ${jazzberry}$HOST"
     echo -e "\nAdditionnal information:$reset " ; uname -a
     echo -e "\n${jazzberry}Users logged on:$reset " ; w -h
