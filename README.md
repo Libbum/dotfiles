@@ -28,4 +28,4 @@ TODO
 - [X] dir_colors does not need a separate legacy file, if seding out the offending lines and passing the result to dircolors works
 - [ ] vim needs better tab management
 - [ ] rewrite keyboard layout functions to clear both non standard layouts to switch to qwerty, then call other n-s clear function before activating current
-
+- [ ] Vayu is having a spasm with some form of error when saving in vim. Check that out...

@@ -16,3 +16,6 @@
 [submodule "includes/dir_colors"]
 	path = includes/dir_colors
 	url = Github:Libbum/dircolors-apoklinon.git
+[submodule "vim/bundle/vim-octopress"]
+	path = vim/bundle/vim-octopress
+	url = Github:tangledhelix/vim-octopress.git
