@@ -13,3 +13,6 @@
 [submodule "vim/bundle/vim-liquid"]
 	path = vim/bundle/vim-liquid
 	url = Github:/tpope/vim-liquid.git
+[submodule "includes/dir_colors"]
+	path = includes/dir_colors
+	url = Github:Libbum/dircolors-apoklinon.git
