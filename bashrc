@@ -77,11 +77,9 @@ if [[ -n "$SSH_CONNECTION" ]]; then
     else
         #either a remote with X, or runlevel!=5 or non RGB putty session
         #For the moment, I can't figure out a way to check runlevel of the ssh client or find out .Xresources if exists 
-        #without envoking a reverse connection or using sendenv. The former is messy and the latter is locked down for a number 
-        #of machines I have access to.
-        #A sloppy work around follows - assumes either non RGB putty or Soma
-        if [[ "$TERM" == "xterm-256color" ]]; then
-            #I override the xterm variable in local bash_profiles to this of logging in from Soma
+        #without envoking a reverse connection or using sendenv. Many servers I use dont have sendenv ancive and this
+        #method, I feel is sloppy If anyone has a better idea at how to check this, please let me know.
+        if [[ "$(ssh $(~/.scripts/getClientHost) '~/.scripts/envData')" == "1,5" ]]; then #both Xresources and runlevel are good
             export apoklinonRGB=1
         else
             export apoklinonRGB=0

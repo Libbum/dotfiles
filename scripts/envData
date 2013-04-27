@@ -1,0 +1,6 @@
+#!/bin/bash
+#Echos required environment for localCheck in .bashrc
+
+[ -f ~/.Xresources ] && echo -n 1 || echo -n 0
+echo -n ","
+echo $(who -r | awk '{print $2}')
