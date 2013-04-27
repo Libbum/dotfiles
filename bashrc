@@ -134,10 +134,9 @@ fi
 
 #Some supercomputing clusters tend to use a dog old version of dir_colors - primarily to piss me off.
 if [ $(echo "$(dircolors --version | head -n1 | awk '{ print $4 }') < 7.5" | bc) -eq 1 ]; then
-    [ $apoklinonRGB -eq 1 ] && input=$(sed -e '/RESET/d' -e '/MULTIHARDLINK/d' -e '/CAPABILITY/d' $HOME/.dir_colors.RGB) || input=$(sed -e '/RESET/d' -e '/MULTIHARDLINK/d' -e '/CAPABILITY/d' $HOME/.dir_colors.8bit)
-    eval `dircolors -b <($input)`
+    [ $apoklinonRGB -eq 1 ] && eval 'dircolors -b <(sed -e '/RESET/d' -e '/MULTIHARDLINK/d' -e '/CAPABILITY/d' $HOME/.dir_colors.RGB)' || eval `dircolors -b <(sed -e '/RESET/d' -e '/MULTIHARDLINK/d' -e '/CAPABILITY/d' $HOME/.dir_colors.8bit)`
 else
-   [ $apoklinonRGB -eq 1 ] && eval `dircolors -b $HOME/.dir_colors.RGB` || `dircolors -b $HOME/.dir_colors.8bit`
+    [ $apoklinonRGB -eq 1 ] && eval `dircolors -b $HOME/.dir_colors.RGB` || `dircolors -b $HOME/.dir_colors.8bit`
 fi
 
 blueg=${blue#\\e[}
