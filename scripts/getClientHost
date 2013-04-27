@@ -5,4 +5,15 @@
 #TODO: traverse ssh chain to origin (ie, if tunneling through a gateway machine, we need to find the origin)
 
 client=${SSH_CLIENT%% *}
-awk '/'$client'/ { print x; exit(0); }; { x=$2 }' ~/.ssh/config
+name=$(awk '/'$client'/ { print x; exit(0); }; { x=$2 }' ~/.ssh/config)
+if [ -z "$name" ]; then
+    #Host wasn't found in ssh/config
+    lookup=$(host $client | awk '{ print $NF }')
+    lookup=${lookup%.}
+    #specific host problems
+    [ "${lookup%[0-9]*}" == "vayu" ] && lookup="vayu.nci.org"
+
+    name=$lookup
+fi
+
+

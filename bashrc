@@ -79,7 +79,8 @@ if [[ -n "$SSH_CONNECTION" ]]; then
         #For the moment, I can't figure out a way to check runlevel of the ssh client or find out .Xresources if exists 
         #without envoking a reverse connection or using sendenv. Many servers I use dont have sendenv ancive and this
         #method, I feel is sloppy If anyone has a better idea at how to check this, please let me know.
-        if [[ "$(ssh $(~/.scripts/getClientHost) '~/.scripts/envData')" == "1,5" ]]; then #both Xresources and runlevel are good
+        client=$(~/.scripts/getClientHost)
+        if  [ -n $client ] && [[ "$(ssh $client '~/.scripts/envData')" == "1,5" ]]; then #both Xresources and runlevel are good
             export apoklinonRGB=1
         else
             export apoklinonRGB=0
