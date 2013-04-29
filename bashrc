@@ -65,14 +65,14 @@ export reset="\e[0m"
 # 5. Using putty without a saved session, remote or local. [256]
 function localeCheck() {
 #Check answerback from terminal. Expecting ApokPuT from known putty sessions, ^[[?1;2c from urxvt (at least)
-read -n7 -t1 -s -p `echo -en "\005"` answerBack
+read -n7 -t1 -s -p $(echo -en "\005") answerBack
 
 #First, are we remote or local?
-if [[ -n "$SSH_CONNECTION" ]]; then
+if [ -n "$SSH_CONNECTION" ]; then
     # remote
     
     #Using RGB enabled putty session?
-    if [[ "$answerBack" == "ApokPuT" ]]; then
+    if [ "$answerBack" == "ApokPuT" ]; then
         export apoklinonRGB=1
     else
         #either a remote with X, or runlevel!=5 or non RGB putty session
@@ -96,17 +96,20 @@ else
     # local
 
     #Is Xresources available?
-    if [[ -f ~/.Xresources ]]; then
+    if [ -f ~/.Xresources ]; then
          # linux machine
+         
+         #Runlevel is currently broken on Arch! https://bugs.archlinux.org/task/34657
+         
          #Check the runlevel
-         if [[ $(who -r | awk '{print $2}') -eq 5 ]]; then
+         #if [[ $(who -r | awk '{print $2}') -eq 5 ]]; then
              export apoklinonRGB=1
-         else
-             export apoklinonRGB=0
-         fi  
+         #else
+         #    export apoklinonRGB=0
+         #fi  
     else
         #Using RGB enabled putty session?
-        if [[ "$answerBack" == "ApokPuT" ]]; then
+        if [ "$answerBack" == "ApokPuT" ]; then
             export apoklinonRGB=1
         else
             #This catches any machine not using a RGB putty enabled session, or linux machines without .Xresources, regardless of runlevel
