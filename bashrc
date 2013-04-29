@@ -76,11 +76,17 @@ if [[ -n "$SSH_CONNECTION" ]]; then
         export apoklinonRGB=1
     else
         #either a remote with X, or runlevel!=5 or non RGB putty session
-        #For the moment, I can't figure out a way to check runlevel of the ssh client or find out .Xresources if exists 
+        #For the moment, I cant figure out a way to check runlevel of the ssh client or find out .Xresources if exists 
         #without envoking a reverse connection or using sendenv. Many servers I use dont have sendenv ancive and this
         #method, I feel is sloppy If anyone has a better idea at how to check this, please let me know.
-        client=$(~/.scripts/getClientHost)
-        if  [ -n $client ] && [[ "$(ssh $client '~/.scripts/envData')" == "1,5" ]]; then #both Xresources and runlevel are good
+        
+        #client=$(~/.scripts/getClientHost)
+        #if  [ -n $client ] && [[ "$(ssh $client '~/.scripts/envData')" == "1,5" ]]; then #both Xresources and runlevel are good
+        
+        #Instead of above, Im using a quick override - I set TERM=xterm-256color in bash_profile of machines I always remote in to if 
+        #urxvt sends its own name (which screws my emulation up on those machines that dont have urxvt)
+
+        if [ "$TERM" == "xterm-256color" ]; then
             export apoklinonRGB=1
         else
             export apoklinonRGB=0
