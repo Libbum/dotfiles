@@ -61,6 +61,7 @@ set sidescrolloff=2
 set numberwidth=4
 
 " Title  **********************************************************************
+let &titleold = getcwd()
 set title
 auto BufEnter * let &titlestring = s:MyTitle()
 
