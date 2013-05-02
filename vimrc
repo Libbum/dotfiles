@@ -22,7 +22,6 @@
 
 
 set nocompatible
-let mapleader = ","  " TODO: fix this (before pg 100 somewhere)
 execute pathogen#infect() 
 
 " Tabs ************************************************************************
@@ -40,16 +39,14 @@ function! Tabstyle_tabs()
   autocmd User Rails set noexpandtab
 endfunction
 
-function! Tabstyle_spaces()
-  " Use 8 spaces
-  set softtabstop=8
-  set shiftwidth=8
-  set tabstop=8
-  set expandtab
+function! Tabstyle_spaces(num)
+    let &l:softtabstop=a:num
+    let &l:shiftwidth=a:num
+    let &l:tabstop=a:num
+    set expandtab
 endfunction
 
-call Tabstyle_spaces()
-
+call Tabstyle_spaces(4)
 
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
@@ -176,7 +173,7 @@ filetype plugin indent on
 
 
 " Insert New Line *************************************************************
-map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
+map <S-Enter> O<ESC> " inserts new line without going into insert mode
 map <Enter> o<ESC>
 "set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 

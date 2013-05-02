@@ -26,9 +26,9 @@ TODO
 - [X] Fix answerback for urxvt [Increased read length to 7. Update Putty answerback to "ApokPuT"]
 - [ ] Get dir_colours in order
 - [X] dir_colors does not need a separate legacy file, if seding out the offending lines and passing the result to dircolors works
-- [ ] {vim} needs better tab management
+- [X] {vim} needs better tab management
 - [ ] {vim} rewrite keyboard layout functions to clear both non standard layouts to switch to qwerty, then call other n-s clear function before activating current
 - [ ] {vim} Vayu is having a spasm with some form of error when saving in vim. Check that out...
-- [ ] put Soma above FUCKUP in .ssh/config on all machines
-- [ ] {getClientHost} Reverse dns for hosts that cannot be found in config
-- [ ] {getClientHost} raverse ssh chain to origin (ie, if tunneling through a gateway machine, we need to find the origin)
+- [X] put Soma above FUCKUP in .ssh/config on all machines
+- [ ] {getClientHost} Reverse dns for hosts that cannot be found in config [partially done]
+- [ ] {getClientHost} raverse ssh chain to origin (ie, if tunneling through a gateway machine, we need to find the origin) [completed to one hop (not n)]
