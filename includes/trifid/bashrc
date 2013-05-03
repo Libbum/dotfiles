@@ -1,3 +1,4 @@
 #bashrc includes for Trifid
 
 alias work='cd /lustre/eppnRM104/tim'
+alias qq="showq | grep tdubois"
