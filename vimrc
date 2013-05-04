@@ -52,6 +52,10 @@ call Tabstyle_spaces(4)
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent (local to buffer)
 
+" Shows Syntax highlight stack under cursor. Useful for debugging colorschemes
+map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Scrollbars ******************************************************************
 set sidescrolloff=2
@@ -139,7 +143,7 @@ syntax on " syntax highlighting
 let g:apoklinon_use_Xresources = $apoklinonRGB
 colorscheme apoklinon
 
-
+autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,h,javascript} call CSyntaxAfter()
 
 " Status Line *****************************************************************
 set showcmd
