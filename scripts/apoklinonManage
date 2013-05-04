@@ -4,6 +4,20 @@
 # the apoklinon palette from RGB-256 (or vice versa), send an argument
 # into the function from a prompt instead
 
+function switcher() {
+    #Switch mode.
+    case "$1" in
+    "RGB") export apoklinonRGB=1;;
+    "rgb") export apoklinonRGB=1;;
+    "256") export apoklinonRGB=0;;
+    *) echo "ERROR: Valid arguments are 'RGB' or '256'.";;
+    esac
+}
+
+if [ -n "$1" ]; then
+    switcher "$1"
+fi
+
 # Apoklinon colours:
 resetp="\[\033[0m\]"
 export reset="\e[0m"
@@ -80,3 +94,32 @@ else
    dgrayp="\[\033[38;5;248m\]"
 fi
 
+
+function updatePrompt() {
+  host=${HOSTNAME%%[.0-9]*}
+  Host=${host[@]^}
+  PathShort="\w"
+  export PS1=$davgrayp$Host$resetp'$(git branch &>/dev/null;\
+  if [ $? -eq 0 ]; then \
+      echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+      if [ "$?" -eq "0" ]; then \
+          # @4 - Clean repository - nothing to commit
+          echo "'$bluep'"$(__git_ps1 " (%s)"); \
+      else \
+         # @5 - Changes to working tree
+         echo "'$brickp'"$(__git_ps1 " {%s}"); \
+      fi) '$sandyp$PathShort$resetp'\$ "; \
+  else \
+     # @2 - Prompt when not in GIT repo
+     echo " '$aquap$PathShort$resetp'\$ "; \
+  fi)'
+
+  #This bites me on the ass if I have custom overrides on the prompt. Call them here:
+  [ -f ~/.dotfiles/includes/"$host"/bashrc ] && source ~/.dotfiles/includes/"$host"/bashrc
+}
+
+
+if [ -n "$1" ]; then
+    #Update prompt (ie, this has been called interactively, not from .bashrc)
+    updatePrompt
+fi
