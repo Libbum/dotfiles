@@ -3,14 +3,13 @@
 umask 027
 
 module load dot 
-module load intel-fc
 module load intel-cc
 
-module load openmpi
-module load intel-mkl/13.1.117
+module load intel-mkl/13.2.146 
+module load intel-fc/13.2.146
+module load openmpi/1.6.3
 
-PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
-export PATH
+export PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
 
 source ~/bin/git-prompt.sh
 tempfile=/tmp/ssh-agent.test
