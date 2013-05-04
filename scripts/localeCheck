@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#Connection location: function to test where I'm logging in from and what fallbacks should be used.
+
+# There are a number of possibilites to check, we want to use RGB coloursets as much as possible, but have 256 fallbacks when we cannot.
+# 1. On Soma (or another linux machine) with .Xresources available and running X and a local connection. [RGB]
+# 2. On Soma (or another linux machine) with .Xresources available and running X and a remoting to another machine. [RGB]
+# 3. On Soma (or another linux machine) with .Xresources available but NOT running X and a local (or remote) connection. [256]
+# 4. Using putty with a saved, setup session, remote or local. [RGB]
+# 5. Using putty without a saved session, remote or local. [256]
+function localeCheck() {
+#Check answerback from terminal. Expecting ApokPuT from known putty sessions, ^[[?1;2c from urxvt (at least)
+read -n7 -t1 -s -p $(echo -en "\005") answerBack
+
+#First, are we remote or local?
+if [ -n "$SSH_CONNECTION" ]; then
+    # remote
+    
+    #Using RGB enabled putty session?
+    if [ "$answerBack" == "ApokPuT" ]; then
+        export apoklinonRGB=1
+    else
+        #either a remote with X, or runlevel!=5 or non RGB putty session
+        #For the moment, I cant figure out a way to check runlevel of the ssh client or find out .Xresources if exists 
+        #without envoking a reverse connection or using sendenv. Many servers I use dont have sendenv ancive and this
+        #method, I feel is sloppy If anyone has a better idea at how to check this, please let me know.
+    
+        #client=$(~/.scripts/getClientHost)
+        #if  [ -n $client ] && [[ "$(ssh $client '~/.scripts/envData')" == "1,5" ]]; then #both Xresources and runlevel are good
+    
+        #Instead of above, Im using a quick override - I set TERM=xterm-256color in bash_profile of machines I always remote in to if 
+        #urxvt sends its own name (which screws my emulation up on those machines that dont have urxvt)
+
+        if [ "$TERM" == "xterm-256color" ]; then
+            export apoklinonRGB=1
+        else
+            export apoklinonRGB=0
+        fi  
+    fi  
+else
+ # local
+
+    #Is Xresources available?
+    if [ -f ~/.Xresources ]; then
+         # linux machine
+    
+         #Runlevel is currently broken on Arch! https://bugs.archlinux.org/task/34657
+    
+         #Check the runlevel
+         #if [[ $(who -r | awk '{print $2}') -eq 5 ]]; then
+             export apoklinonRGB=1
+         #else
+         #    export apoklinonRGB=0
+         #fi  
+    else
+        #Using RGB enabled putty session?
+        if [ "$answerBack" == "ApokPuT" ]; then
+            export apoklinonRGB=1
+        else
+            #This catches any machine not using a RGB putty enabled session, or linux machines without .Xresources, regardless of runlevel
+            export apoklinonRGB=0
+        fi
+    fi
+fi
+}
+
