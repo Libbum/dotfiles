@@ -1,25 +1,9 @@
-" -----------------------------------------------------------------------------  
-" |                                                                           |
-" | Some highlights:                                                          |
-" |   ,n = toggle NERDTree off and on                                         |
-" |                                                                           |
-" |   ,f = fuzzy find all files                                               |
-" |   ,b = fuzzy find in all buffers                                          |
-" |   ,p = go to previous file                                                |
-" |                                                                           |
-" |   ,h = new horizontal window                                              |
-" |   ,v = new vertical window                                                |
-" |                                                                           |
-" |   ,i = toggle invisibles                                                  |
-" |                                                                           |
-" |   enter and shift-enter = adds a new line after/before the current line   |
-" |                                                                           |
-" |   :call Tabstyle_tabs = set tab to real tabs                              |
-" |   :call Tabstyle_spaces = set tab to 8 spaces (Haskell style)             |
-" |                                                                           |
-" | Put machine/user specific settings in ~/.vimrc.local                      |
-" -----------------------------------------------------------------------------  
-
+" *****************************************************************************
+"
+" Tim's ever growing vimrc, will get to commenting the specifics at some later
+" stage... Optimised for a Dvorak layout, apoklinon colours and xmonad.
+"
+" *****************************************************************************
 
 set nocompatible
 execute pathogen#infect() 
@@ -199,8 +183,9 @@ set nolist
 "set selectmode=mouse
 
 " Keyboard  *******************************************************************
-function! Keyboard(type)
+function Keyboard(type)
    if a:type == "dvorak"
+      call UnmapWorkman()
       nnoremap d h
       nnoremap h j
       nnoremap t k
@@ -219,8 +204,15 @@ function! Keyboard(type)
       nnoremap T 8<Up>
       nnoremap D <C-w><C-r>
    elseif a:type == "workman"
-
+       call UnmapDvorak()
    else " qwerty
+       call UnmapDvorak()
+       call UnmapWorkman()
+   endif
+endfunction
+
+function UnmapDvorak()
+    "Unmaps Dvorak keys
       nunmap d
       nunmap h
       nunmap t
@@ -238,7 +230,10 @@ function! Keyboard(type)
       nunmap H
       nunmap T
       nunmap D
-   endif
+endfunction
+
+function UnmapWorkman()
+    "Unmaps Workman keys
 endfunction
 
 autocmd VimEnter * call Keyboard("dvorak") " Dvorak keyboard settings as default
