@@ -1,7 +1,5 @@
 #bashrc includes for Vayu
 
-source ~/.tp_command
-
 export GULP_LIB=/home/595/tcb595/scripts/gulp3.5.1/Libraries
 export GULP_DOC=/home/595/tcb595/scripts/gulp3.5.1/Docs
 export IPM_LOGDIR=/short/h72/tim/ipm_logs

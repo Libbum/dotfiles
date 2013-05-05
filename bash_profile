@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[ -f ~/.bashrc ] && source ~/.bashrc
 
 host=${HOSTNAME%%[.0-9]*} #see bashrc for the reasons for this.
 
