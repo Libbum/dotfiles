@@ -53,7 +53,6 @@ fi
 
 #call locale to set colour fallback
 source ~/.scripts/localeCheck
-localeCheck
 
 source ~/.scripts/apoklinonManage
 

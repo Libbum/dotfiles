@@ -122,4 +122,7 @@ function updatePrompt() {
 if [ -n "$1" ]; then
     #Update prompt (ie, this has been called interactively, not from .bashrc)
     updatePrompt
+    blueg=${blue#\\e[}
+    export GREP_OPTIONS='--color=auto' GREP_COLOR=${blueg%m}
 fi
+

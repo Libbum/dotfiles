@@ -8,14 +8,13 @@
 # 3. On Soma (or another linux machine) with .Xresources available but NOT running X and a local (or remote) connection. [256]
 # 4. Using putty with a saved, setup session, remote or local. [RGB]
 # 5. Using putty without a saved session, remote or local. [256]
-function localeCheck() {
+
 #Check answerback from terminal. Expecting ApokPuT from known putty sessions, ^[[?1;2c from urxvt (at least)
 read -n7 -t1 -s -p $(echo -en "\005") answerBack
 
 #First, are we remote or local?
 if [ -n "$SSH_CONNECTION" ]; then
     # remote
-    
     #Using RGB enabled putty session?
     if [ "$answerBack" == "ApokPuT" ]; then
         export apoklinonRGB=1
@@ -62,5 +61,4 @@ else
         fi
     fi
 fi
-}
 
