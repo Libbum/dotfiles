@@ -1,6 +1,6 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-systemd --user & #run systemd as user instance
+/usr/lib/systemd/systemd --user & #run systemd as user instance
 /home/genesis/.scripts/wpchanger #Starts nitrogen, in a manner that allows a cron job to change the wallpaper randomly
 dropboxd &
 
