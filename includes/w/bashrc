@@ -1,0 +1,21 @@
+#Includes for Jnana's bashrc
+
+#Jnanas hostname doesn't take kindly from being changed... - ruiners.
+Host="Jnana"
+PathShort="\w"
+
+export PS1=$davgrayp$Host$resetp'$(git branch &>/dev/null;\
+if [ $? -eq 0 ]; then \
+    echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+    if [ "$?" -eq "0" ]; then \
+        # @4 - Clean repository - nothing to commit
+        echo "'$bluep'"$(__git_ps1 " (%s)"); \
+    else \
+       # @5 - Changes to working tree
+       echo "'$brickp'"$(__git_ps1 " {%s}"); \
+    fi) '$sandyp$PathShort$resetp'\$ "; \
+else \
+   # @2 - Prompt when not in GIT repo
+   echo " '$aquap$PathShort$resetp'\$ "; \
+fi)'
+

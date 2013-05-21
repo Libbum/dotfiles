@@ -1,0 +1,16 @@
+#bash_profile includes for Jnana
+
+source ~/bin/git-prompt.sh
+
+#override TERM if logging in from Soma
+[ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm-256color
+
+PATH=~/bin/:$PATH
+
+export SSHAGENT=/usr/bin/charade
+export SSHAGENTARGS="-s"
+if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+   eval `$SSHAGENT $SSHAGENTARGS`
+   trap "kill $SSH_AGENT_PID" 0
+fi
+
