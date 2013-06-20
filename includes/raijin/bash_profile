@@ -1,28 +1,10 @@
 #includes for Raijin's bash_profile
 
-#Copied from Vayu, but for now most of this may be irrelevant
-#umask 027
+module load openmpi/1.6.3
 
-#module load dot 
-#module load intel-cc
-
-#module load intel-mkl/13.2.146 
-#module load intel-fc/13.2.146
-#module load openmpi/1.6.3
-
-#export PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
+export PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
 
 source ~/bin/git-prompt.sh
-#tempfile=/tmp/ssh-agent.test
 
 #override TERM if logging in from Soma
 [ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm-256color
-
-#ON=`cat ~/simulate`
-#if [ $ON -eq 1 ]; then
-    #~/scripts/simulate
-#fi
-
-#echo 0 > ~/simulate
-
-
