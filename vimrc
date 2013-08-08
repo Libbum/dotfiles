@@ -204,42 +204,55 @@ function Keyboard(type)
       nnoremap T 8<Up>
       nnoremap D <C-w><C-r>
    elseif a:type == "workman"
-       call UnmapDvorak()
+      call UnmapDvorak()
+      nnoremap j t
+      nnoremap t j
    else " qwerty
-       call UnmapDvorak()
-       call UnmapWorkman()
+      call UnmapDvorak()
+      call UnmapWorkman()
    endif
 endfunction
 
 function UnmapDvorak()
     "Unmaps Dvorak keys
-      nunmap d
-      nunmap h
-      nunmap t
-      nunmap n
-      nunmap s
-      nunmap S
-      nunmap j
-      ounmap j
-      nunmap l
-      nunmap L
+      silent! nunmap d
+      silent! nunmap h
+      silent! nunmap t
+      silent! nunmap n
+      silent! nunmap s
+      silent! nunmap S
+      silent! nunmap j
+      silent! ounmap j
+      silent! nunmap l
+      silent! nunmap L
  
-      nunmap -
-      nunmap _
-      nunmap N
-      nunmap H
-      nunmap T
-      nunmap D
+      silent! nunmap -
+      silent! nunmap _
+      silent! nunmap N
+      silent! nunmap H
+      silent! nunmap T
+      silent! nunmap D
 endfunction
 
 function UnmapWorkman()
     "Unmaps Workman keys
+    silent! nunmap j
+    silent! nunmap t
 endfunction
 
-autocmd VimEnter * call Keyboard("dvorak") " Dvorak keyboard settings as default
+function LoadKeyboard()
+   if (system('echo ${SSH_CONNECTION%% *}') == "131.170.94.23")
+       call Keyboard("workman")
+   else
+       call Keyboard("dvorak")
+   endif
+endfunction
+
+autocmd VimEnter * call LoadKeyboard()
 
 :noremap <Leader>q :call Keyboard("qwerty")<CR> " Map normal modes keys to qwerty
 :noremap <Leader>d :call Keyboard("dvorak")<CR> " Map normal modes keys to dvorak
+:noremap <Leader>w :call Keyboard("workman")<CR> " Map normal modes keys to workman
 
 " Misc settings ***************************************************************
 set backspace=indent,eol,start
