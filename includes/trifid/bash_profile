@@ -1,9 +1,7 @@
 #bash_profile includes for Trifid
 
-module unload gcc
-module load gcc/4.8.1
+module load openmpi-gcc/1.7.0
 module load blas/1.0.248
-module load openmpi-gcc/1.7.1
 module load lapack/3.4.2
 
 source ~/bin/git-prompt.sh
