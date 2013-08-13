@@ -2,6 +2,8 @@
 
 alias redwm='sed -i '/md5sums/,/-End/d' PKGBUILD; makepkg -g >> PKGBUILD; makepkg -fi'
 alias blogenv='source /usr/bin/virtualenvwrapper.sh; workon blog_env'
+alias galaxymount='jmtpfs ~/galaxy'
+alias galaxyumount='fusermount -u ~/galaxy'
 
 #Overwrite PROMPT_COMMAND settings (titles for grid select in Xmonad)
 case ${TERM} in
