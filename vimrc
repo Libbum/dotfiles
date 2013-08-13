@@ -221,6 +221,7 @@ function Keyboard(type)
       nnoremap K E
       nnoremap E K
       nnoremap h y
+      onoremap h y
       "(Y)ank -> (H)aul
       nnoremap y h
       nnoremap H Y
@@ -255,6 +256,7 @@ endfunction
 function UnmapWorkman()
     "Unmaps Workman keys
     silent! nunmap h
+    silent! ounmap h
     silent! nunmap j
     silent! nunmap k
     silent! nunmap l
@@ -283,9 +285,9 @@ endfunction
 
 autocmd VimEnter * call LoadKeyboard()
 
-:noremap <Leader>q :call Keyboard("qwerty")<CR> " Map normal modes keys to qwerty
-:noremap <Leader>d :call Keyboard("dvorak")<CR> " Map normal modes keys to dvorak
-:noremap <Leader>w :call Keyboard("workman")<CR> " Map normal modes keys to workman
+:noremap <Leader>q :call Keyboard("qwerty")<CR>:echom "Qwerty Keyboard Layout"<CR>
+:noremap <Leader>d :call Keyboard("dvorak")<CR>:echom "Dvorak Keyboard Layout"<CR>
+:noremap <Leader>w :call Keyboard("workman")<CR>:echom "Workman Keyboard Layout"<CR>
 
 " Misc settings ***************************************************************
 set backspace=indent,eol,start
