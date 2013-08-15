@@ -219,7 +219,7 @@ function Keyboard(type)
       nnoremap k e
       nnoremap e k
       nnoremap K E
-      nnoremap E K
+      nnoremap E <nop>
       nnoremap h y
       onoremap h y
       "(Y)ank -> (H)aul
