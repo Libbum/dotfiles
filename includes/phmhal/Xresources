@@ -29,7 +29,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 xterm.font:-misc-tamsyn-medium-r-normal-*-17-*-*-*-*-*-iso8859-1
-URxvt.font: inconsolata:pixelsize=14:antialias=true:hinting=true
+URxvt.font: xft:Inconsolata:style=Medium
 !}}}
 
 !{{{ Xterm
