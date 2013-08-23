@@ -275,8 +275,8 @@ function UnmapWorkman()
 endfunction
 
 function LoadKeyboard()
-   let sship = $SSH_CONNECTION 
-   if (sship[0:12] == "131.170.94.23")
+   let keys = $keyboard
+   if (keys == "workman")
        call Keyboard("workman")
    else
        call Keyboard("dvorak")
