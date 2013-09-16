@@ -1,16 +1,16 @@
 #bashrc includes for Raijin
 
 #Copied from Vayu, but for now most of this may be irrelevant
-#export GULP_LIB=/home/595/tcb595/scripts/gulp3.5.1/Libraries
-#export GULP_DOC=/home/595/tcb595/scripts/gulp3.5.1/Docs
+export GULP_LIB=~/bin/gulpdata/Libraries
+export GULP_DOC=~/bin/gulpdata/Docs
 #export IPM_LOGDIR=/short/h72/tim/ipm_logs
 #export IPM_LOGFILE=$PBS_JOBID.`date +%s`
 export MPIEXEC_RSH=pbs_rsh
 #export LD_LIBRARY_PATH=/home/595/tcb595/lib
 
 alias back='tar --exclude=WAVECAR --exclude=CHG* -cvzf' #requires filename directory
-alias h72='cd /short/h72/tcb595'
-alias k76='cd /short/k76/tcb595'
+alias h72='cd /short/h72/tim'
+alias k76='cd /short/k76/tim'
 alias cpvasp='cp PO* INCAR KPOINTS *.job'
 alias clean='rm CHG* *.job.* CONTCAR EIGENVAL OSZICAR PCDAT XDATCAR vasprun.xml DOSCAR IBZKPT OUTCAR WAVECAR'
 alias lwd='cd $(cat ~/.lwdloc)'
