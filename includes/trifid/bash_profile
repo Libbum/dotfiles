@@ -4,6 +4,9 @@ module load openmpi-gcc/1.7.0
 module load blas/1.0.248
 module load lapack/3.4.2
 
+export GULP_LIB=~/bin/gulpdata/Libraries
+export GULP_DOC=~/bin/gulpdata/Docs
+
 source ~/bin/git-prompt.sh
 
 #override TERM if logging in from Soma
