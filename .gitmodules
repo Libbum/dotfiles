@@ -16,3 +16,6 @@
 [submodule "vim/bundle/haskellmode-vim"]
 	path = vim/bundle/haskellmode-vim
 	url = Github:lukerandall/haskellmode-vim.git
+[submodule "vim/bundle/hasksyn"]
+	path = vim/bundle/hasksyn
+	url = Github:travitch/hasksyn.git
