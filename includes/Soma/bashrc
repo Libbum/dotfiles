@@ -5,6 +5,12 @@ alias blogenv='source /usr/bin/virtualenvwrapper.sh; workon blog_env'
 alias galaxymount='jmtpfs ~/galaxy'
 alias galaxyumount='fusermount -u ~/galaxy'
 
+#vim-pandoc wants python extensions for vim, so gvim is installed. We don't need to connect to the X server if this is an SSH connection
+unalias vi
+function vi() {
+[ -z "$SSH_CONNECTION" ] && vim $@ || vim -X $@
+}
+
 #Overwrite PROMPT_COMMAND settings (titles for grid select in Xmonad)
 case ${TERM} in
   xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
