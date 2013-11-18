@@ -4,15 +4,9 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = Github:airblade/vim-gitgutter
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = Github:tpope/vim-markdown
 [submodule "includes/dir_colors"]
 	path = includes/dir_colors
 	url = Github:Libbum/dircolors-apoklinon.git
-[submodule "vim/bundle/vim-octopress"]
-	path = vim/bundle/vim-octopress
-	url = Github:tangledhelix/vim-octopress.git
 [submodule "vim/bundle/haskellmode-vim"]
 	path = vim/bundle/haskellmode-vim
 	url = Github:lukerandall/haskellmode-vim.git

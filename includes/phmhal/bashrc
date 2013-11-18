@@ -1,2 +1,0 @@
-source ~/bin/git-prompt.sh
-PATH=~/bin/:$PATH
