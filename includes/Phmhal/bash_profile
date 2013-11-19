@@ -1,0 +1,9 @@
+# bash_profile includes for Phmhal
+
+eval $(keychain --eval --agents ssh,gpg -Q --quiet id_dsa)
+
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+   . /usr/share/git/completion/git-prompt.sh
+fi
+
+

@@ -1,0 +1,22 @@
+-- import qualified IPPrint
+-- import qualified Language.Haskell.HsColour as HsColour
+-- import qualified Language.Haskell.HsColour.Colourise as HsColour
+-- import qualified Language.Haskell.HsColour.Output as HsColour
+
+-- Hoogle 
+let ghciEscapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\"'\"'" else [c]) arg ++ "'"
+:def! search return . (":! hoogle --color " ++) . ghciEscapeShellArg
+:def! doc return . (":! hoogle --info " ++) . ghciEscapeShellArg
+
+-- Syntax Highlighting (Currently not in use until I figure out a way to make it persistent after :load)
+-- let myColourPrefs = HsColour.defaultColourPrefs { HsColour.conid = [HsColour.Foreground HsColour.Yellow, HsColour.Bold], HsColour.conop = [HsColour.Foreground HsColour.Yellow], HsColour.string = [HsColour.Foreground HsColour.Green], HsColour.char = [HsColour.Foreground HsColour.Cyan], HsColour.number = [HsColour.Foreground HsColour.Red, HsColour.Bold], HsColour.layout = [HsColour.Foreground HsColour.White], HsColour.keyglyph = [HsColour.Foreground HsColour.White] }
+
+-- :{
+-- let myPrint :: Show a => a -> IO ();
+    -- myPrint = putStrLn . HsColour.hscolour (HsColour.TTYg HsColour.XTerm256Compatible) myColourPrefs False False "" False . IPPrint.pshow
+-- :}
+
+-- :set -interactive-print=myPrint
+
+-- You must set your prompt to a lambda, it's a law.
+:set prompt "\ESC[34m%s λ> \ESC[m"

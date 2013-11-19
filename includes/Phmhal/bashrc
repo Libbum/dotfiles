@@ -1,9 +1,4 @@
-#bashrc includes for Soma
-
-alias redwm='sed -i '/md5sums/,/-End/d' PKGBUILD; makepkg -g >> PKGBUILD; makepkg -fi'
-alias blogenv='source /usr/bin/virtualenvwrapper.sh; workon blog_env'
-alias galaxymount='jmtpfs ~/galaxy'
-alias galaxyumount='fusermount -u ~/galaxy'
+#bashrc includes for Phmhal
 
 #vim-pandoc wants python extensions for vim, so gvim is installed. We don't need to connect to the X server if this is an SSH connection
 unalias vi

@@ -18,6 +18,10 @@ if [ -n "$SSH_CONNECTION" ]; then
     #Using RGB enabled putty session?
     if [ "$answerBack" == "ApokPuT" ]; then
         export apoklinonRGB=1
+    elif [ "$answerBack" == "ApokPuW" ]; then
+        export apoklinonRGB=1
+        #Workman keyboard
+        export keyboard=workman
     else
         #either a remote with X, or runlevel!=5 or non RGB putty session
         #For the moment, I cant figure out a way to check runlevel of the ssh client or find out .Xresources if exists 

@@ -1,6 +1,15 @@
 #includes for Raijin's bash_profile
 
-module load openmpi/1.6.3
+#source /etc/profile.d/nf_sh_modules
+
+#umask 027
+
+#module load dot 
+#module load intel-cc
+
+#module load intel-mkl
+#module load intel-fc
+#module load openmpi
 
 export PATH=$PATH:~/scripts:~/scripts/calc_cell:~/bin:~/scripts/vt
 
