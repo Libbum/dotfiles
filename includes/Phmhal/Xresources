@@ -20,16 +20,17 @@
 #define a_bw05  #2B2B2B
 
 !{{{ Font
-Xft.dpi: 96
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.autohint: false
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
+!Xft.dpi: 96
+!Xft.antialias: true
+!Xft.rgba: rgb
+!Xft.autohint: false
+!Xft.hinting: true
+!Xft.hintstyle: hintslight
+!Xft.lcdfilter: lcddefault
 
 xterm.font:-misc-tamsyn-medium-r-normal-*-17-*-*-*-*-*-iso8859-1
-URxvt.font: xft:PragmataPro:style=Regular:pixelsize=14
+URxvt.font:-gohu-*-medium-*-*-*-14-*-*-*-*-*-*-* 
+!xft:PragmataPro:style=Regular:pixelsize=14
 !}}}
 
 !{{{ Xterm
@@ -45,9 +46,9 @@ xterm*cursorUnderline: false
 !}}}
 
 !{{{ Urxvt
-URxvt*transparent: true
-URxvt*shading: 30
-URxvt*geometry: 80x22
+URxvt*.transparent: true
+URxvt*.shading: 30
+!URxvt*geometry: 80x22
 !Urxvt.depth: 24
 URxvt*internalBorder: 0
 URxvt*loginShell: true
@@ -116,7 +117,3 @@ URxvt.matcher.rend.0: fg7
 *color15: a_bw02
 !}}}
 
-!{{{ Xcursor
-Xcursor.theme: Obsidian
-Xcursor.size: 48
-!}}}
