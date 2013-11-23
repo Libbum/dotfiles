@@ -1,0 +1,9 @@
+#!/bin/bash
+# Quick and dirty tethering. Will clean this up when I have the time / can be bothered
+
+cd ~/Downloads/adt/adt-bundle-linux-x86_64-20131030/sdk/platform-tools
+./adb forward tcp:41927 tcp:41927
+cd ~/.scripts/
+cp /etc/resolv.conf resolv.tmp
+sudo sed -i 's/nameserver.*/nameserver 192.168.56.1/' /etc/resolv.conf
+sudo openvpn AziLink.ovpn
