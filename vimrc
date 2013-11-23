@@ -157,6 +157,15 @@ set linebreak  " Wrap at word
 filetype plugin indent on
 " To show current filetype use: set filetype
 
+" Latex Stuff
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
+let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
+let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
+let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf='zathura'
 "autocmd FileType html :set filetype=xhtml
 
 
@@ -278,6 +287,8 @@ function LoadKeyboard()
    let keys = $keyboard
    if (keys == "workman")
        call Keyboard("workman")
+   elseif (keys == "qwerty")
+       call Keyboard("qwerty")
    else
        call Keyboard("dvorak")
    endif
