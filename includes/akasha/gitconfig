@@ -1,0 +1,10 @@
+[user]
+	name = Tim DuBois
+	email = genesis@neophilus.net
+[color]
+	ui = auto
+[alias]
+        smp = "submodule foreach git pull origin master"
+[diff]
+        tool = vimdiff
+
