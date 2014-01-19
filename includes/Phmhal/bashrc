@@ -19,7 +19,7 @@ esac
 
 export INFOPATH=/usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH
 export MANPATH=/usr/local/texlive/2013/texmf-dist/doc/man:$MANPATH
-export PATH=$PATH:/usr/local/texlive/2013/bin/x86_64-linux
+export PATH=$PATH:/usr/local/texlive/2013/bin/x86_64-linux:~/.cabal/bin
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export keyboard=qwerty

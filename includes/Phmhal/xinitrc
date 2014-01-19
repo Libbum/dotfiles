@@ -1,0 +1,13 @@
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+/home/genesis/.scripts/wpchanger
+
+trayer --width 5 --transparent true --alpha 0 --tint 0x000000 --edge bottom --expand false --SetDockType false --distance 50 &
+owncloud &
+dropboxd &
+
+xsetroot -cursor_name left_ptr
+xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
+xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
+
+exec xmonad 
+

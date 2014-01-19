@@ -2,7 +2,7 @@
 
 /usr/lib/systemd/systemd --user & #run systemd as user instance
 /home/genesis/.scripts/wpchanger #Starts nitrogen, in a manner that allows a cron job to change the wallpaper randomly
-trayer --width 1 --transparent true --alpha 0 --tint 0x000000 --edge bottom --height 10 --expand false --SetDockType false --distance 50
+trayer --width 5 --transparent true --alpha 0 --tint 0x000000 --edge bottom --expand false --SetDockType false --distance 50 &
 owncloud &
 dropboxd &
 
