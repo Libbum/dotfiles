@@ -8,6 +8,6 @@ fi
 
 export MATLAB_JAVA=/usr/lib/jvm/java-7-openjdk/jre
  
-export PATH="$PATH:$HOME/.cabal/bin:$HOME/.rbenv/bin"
+export PATH="$HOME/.cabal/bin:$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 

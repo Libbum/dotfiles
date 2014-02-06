@@ -1,0 +1,20 @@
+# Dvorak Rewrite
+unmap h
+unmap j
+unmap k
+unmap l
+unmap J
+unmap K
+unmap n
+unmap N
+
+map H navigate next
+map T navigate previous
+map d scroll left
+map t scroll up
+map h scroll down
+map n scroll right
+
+map u search forward
+map e search backward
+

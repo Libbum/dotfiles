@@ -1,0 +1,10 @@
+# bash_profile includes for Akasha
+
+source ~/bin/git-prompt.sh
+
+#override TERM if logging in from Soma
+[ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm-256color
+
+export PATH=$PATH:$HOME/bin
+
+
