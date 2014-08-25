@@ -339,7 +339,7 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
 
 " This probably needs a section but it's here for now
-au BufEnter *.hs compiler ghc
+"au BufEnter *.hs compiler ghc
 " How many lines should be searched for context
 let g:hasksyn_indent_search_backward = 100
 
