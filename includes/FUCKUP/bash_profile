@@ -9,3 +9,4 @@ ssh-pageant > /dev/null
 eval $(/usr/local/bin/ssh-pageant -ra /tmp/.ssh-pageant)
 
 source ~/bin/git-prompt.sh
+~/.scripts/codePage > /dev/null
