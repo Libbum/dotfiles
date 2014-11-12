@@ -50,6 +50,7 @@ map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 set sidescrolloff=2
 set numberwidth=4
 
+
 " Title  **********************************************************************
 let &titleold = getcwd()
 set title
@@ -339,7 +340,7 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
 
 " This probably needs a section but it's here for now
-au BufEnter *.hs compiler ghc
+"au BufEnter *.hs compiler ghc
 " How many lines should be searched for context
 let g:hasksyn_indent_search_backward = 100
 
