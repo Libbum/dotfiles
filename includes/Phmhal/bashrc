@@ -1,25 +1,2 @@
 #bashrc includes for Phmhal
 
-#vim-pandoc wants python extensions for vim, so gvim is installed. We don't need to connect to the X server if this is an SSH connection
-unalias vi
-function vi() {
-[ -z "$SSH_CONNECTION" ] && vim $@ || vim -X $@
-}
-
-#Overwrite PROMPT_COMMAND settings (titles for grid select in Xmonad)
-case ${TERM} in
-  xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s:%s\007" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
-    
-    ;;  
-  screen)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s:%s\033\\" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
-    ;;  
-esac
-
-export INFOPATH=/usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH
-export MANPATH=/usr/local/texlive/2013/texmf-dist/doc/man:$MANPATH
-export PATH=$PATH:/usr/local/texlive/2013/bin/x86_64-linux:~/.cabal/bin
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-export keyboard=qwerty

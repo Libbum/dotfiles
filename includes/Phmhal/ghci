@@ -1,2 +1,0 @@
--- You must set your prompt to a lambda, it's a law.
-:set prompt "\ESC[34m%s λ> \ESC[m"

@@ -1,9 +1,9 @@
 # bash_profile includes for Phmhal
 
-eval $(keychain --eval --agents ssh,gpg -Q --quiet id_dsa)
+eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
 
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-   . /usr/share/git/completion/git-prompt.sh
+if [ -f ~/bin/git-prompt.sh ]; then
+   . ~/bin/git-prompt.sh
 fi
 
 
