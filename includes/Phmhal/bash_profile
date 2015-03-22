@@ -6,4 +6,4 @@ if [ -f ~/bin/git-prompt.sh ]; then
    . ~/bin/git-prompt.sh
 fi
 
-
+unset GIT_SSH
