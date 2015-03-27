@@ -6,4 +6,5 @@ if [ -f ~/bin/git-prompt.sh ]; then
    . ~/bin/git-prompt.sh
 fi
 
+export SVN_SSH=ssh
 unset GIT_SSH
