@@ -64,8 +64,8 @@ else
 fi
 
 blueg=${blue#\\e[}
-export GREP_OPTIONS='--color=auto' GREP_COLOR=${blueg%m}
-
+export GREP_COLOR=${blueg%m}
+alias grep='grep --color=auto'
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
