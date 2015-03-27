@@ -1,0 +1,7 @@
+[user]
+	name = Tim DuBois
+	email = timothy.dubois@rmit.edu.au
+[color]
+	ui = auto
+[diff]
+        tool = vimdiff

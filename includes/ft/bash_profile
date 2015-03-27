@@ -1,0 +1,8 @@
+#bash_profile includes for ft 
+
+source ~/bin/git-prompt.sh
+
+#override TERM if logging in from Soma
+[ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm-256color
+
+PATH=~/bin/:$PATH
