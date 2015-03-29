@@ -116,6 +116,10 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
+function get_svn_rev() {
+   echo $(svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //')
+}
+
 export PS1=$davgrayp$Host$resetp'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
@@ -126,6 +130,10 @@ if [ $? -eq 0 ]; then \
        # @5 - Changes to working tree
        echo "'$brickp'"$(__git_ps1 " {%s}"); \
     fi) '$sandyp$PathShort$resetp'\$ "; \
+elif [[ -d .svn ]]; then\
+    # SVN repo \
+    svnrev=$(get_svn_rev); \
+    echo " $([ "$(svn st)" ] && echo "'$brickp'{svn:$svnrev}" || echo "'$bluep'(svn:$svnrev)";) '$sandyp$PathShort$resetp'\$ "; \
 else \
    # @2 - Prompt when not in GIT repo
    echo " '$aquap$PathShort$resetp'\$ "; \
