@@ -1,2 +1,4 @@
 #bashrc includes for Phmhal
 
+export keyboard=qwerty
+
