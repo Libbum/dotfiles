@@ -19,3 +19,4 @@ else \
    echo " '$aquap$PathShort$resetp'\$ "; \
 fi)'
 
+export keyboard='workman'
