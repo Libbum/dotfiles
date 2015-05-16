@@ -20,3 +20,4 @@ else \
 fi)'
 
 export keyboard='workman'
+export JULIA_EDITOR=vim

@@ -4,3 +4,4 @@
 alias fuck='$(thefuck $(fc -ln -1))'
 
 export keyboard='dvorak'
+export JULIA_EDITOR=vim
