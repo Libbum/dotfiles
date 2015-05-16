@@ -1,10 +1,9 @@
 [user]
 	name = Tim DuBois
-	email = timothy.dubois@rmit.edu.au
+	email = tim@neophilus.net
 [color]
-	ui = auto
+ui = auto
 [diff]
-        tool = vimdiff
-
+tool = vimdiff
 [push]
-	default = simple
+default = simple
