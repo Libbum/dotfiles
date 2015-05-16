@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim2hs"]
 	path = vim/bundle/vim2hs
 	url = Github:dag/vim2hs.git
+[submodule "vim/bundle/julia-vim"]
+	path = vim/bundle/julia-vim
+	url = Github:JuliaLang/julia-vim.git
