@@ -1,4 +1,5 @@
 #bashrc includes for Phmhal
 
 export keyboard=qwerty
+export JULIA_EDITOR=vim
 
