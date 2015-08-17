@@ -5,6 +5,6 @@
 
 PATH=~/bin/:/cygdrive/c/Anaconda:/cygdrive/c/Anaconda/Scripts:/cygdrive/c/Users/e81365/AppData/Local/Julia-0.3.8/bin:$PATH
 
-eval $(/usr/local/bin/ssh-pageant -ra /tmp/.ssh-pageant)
+eval $(/usr/local/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
 
 source ~/bin/git-prompt.sh
