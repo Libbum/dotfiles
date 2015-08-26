@@ -1,0 +1,3 @@
+
+set backupdir^=~/.tmp/vim,/var/tmp
+set directory^=~/.tmy/vim,/var/tmp

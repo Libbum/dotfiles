@@ -1,0 +1,2 @@
+#Sets windows codepage for UTF support in cygwin
+/cygdrive/c/Windows/System32/chcp.com 65001

@@ -32,6 +32,11 @@ endfunction
 
 call Tabstyle_spaces(4)
 
+augroup filetypedetect
+au BufNewFile,BufRead *.asy     setf asy
+augroup END
+filetype plugin on
+
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent (local to buffer)
@@ -44,6 +49,7 @@ map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
+
 
 " Title  **********************************************************************
 let &titleold = getcwd()
@@ -331,7 +337,7 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
 
 " This probably needs a section but it's here for now
-au BufEnter *.hs compiler ghc
+"au BufEnter *.hs compiler ghc
 " How many lines should be searched for context
 let g:hasksyn_indent_search_backward = 100
 

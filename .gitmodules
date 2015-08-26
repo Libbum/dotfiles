@@ -7,12 +7,15 @@
 [submodule "includes/dir_colors"]
 	path = includes/dir_colors
 	url = Github:Libbum/dircolors-apoklinon.git
-[submodule "vim/bundle/haskellmode-vim"]
-	path = vim/bundle/haskellmode-vim
-	url = Github:lukerandall/haskellmode-vim.git
 [submodule "vim/bundle/hasksyn"]
 	path = vim/bundle/hasksyn
 	url = Github:travitch/hasksyn.git
 [submodule "vim/bundle/vim-pandoc"]
 	path = vim/bundle/vim-pandoc
 	url = Github:vim-pandoc/vim-pandoc.git
+[submodule "vim/bundle/vim2hs"]
+	path = vim/bundle/vim2hs
+	url = Github:dag/vim2hs.git
+[submodule "vim/bundle/julia-vim"]
+	path = vim/bundle/julia-vim
+	url = Github:JuliaLang/julia-vim.git

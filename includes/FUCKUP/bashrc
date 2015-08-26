@@ -1,0 +1,7 @@
+#Includes for FUCKUP's bashrc
+
+#'pip install thefuck' first
+alias fuck='$(thefuck $(fc -ln -1))'
+
+export keyboard='dvorak'
+export JULIA_EDITOR=vim

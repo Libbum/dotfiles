@@ -1,0 +1,9 @@
+[user]
+	name = Tim DuBois
+	email = tim@neophilus.net
+[color]
+ui = auto
+[diff]
+tool = vimdiff
+[push]
+default = simple

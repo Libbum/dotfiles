@@ -1,0 +1,11 @@
+#bash_profile includes for FUCKUP
+
+#override TERM if logging in from Soma
+[ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm-256color
+
+PATH=~/bin/:$PATH
+
+eval $(/usr/local/bin/ssh-pageant -ra /tmp/.ssh-pageant)
+
+source ~/bin/git-prompt.sh
+~/.scripts/codePage > /dev/null

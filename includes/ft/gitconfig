@@ -5,4 +5,3 @@
 	ui = auto
 [diff]
         tool = vimdiff
-

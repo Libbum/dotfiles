@@ -19,3 +19,5 @@ else \
    echo " '$aquap$PathShort$resetp'\$ "; \
 fi)'
 
+export keyboard='workman'
+export JULIA_EDITOR=vim
