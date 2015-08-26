@@ -317,10 +317,7 @@ map E ge
 
 map <Leader>p <C-^> " Go to previous file
 
-" Ruby stuff ******************************************************************
-"compiler ruby         " Enable compiler support for ruby
-"map <F5> :!ruby %<CR>
-
+cmap w!! %!sudo tee > /dev/null %
 
 " Omni Completion *************************************************************
 autocmd FileType html :set omnifunc=htmlcomplete#CompleteTags

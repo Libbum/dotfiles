@@ -1,0 +1,12 @@
+# bash_profile includes for Fenchurh
+
+source ~/bin/git-prompt.sh
+
+#override TERM if logging in from Soma
+[ $TERM == "rxvt-unicode-256color" ] && export TERM=xterm-256color
+
+export http_proxy='http://bproxy.rmit.edu.au:8080'
+export ftp_proxy='http://bproxy.rmit.edu.au:8080'
+export https_proxy='http://bproxy.rmit.edu.au:8080'
+export no_proxy="localhost,127.0.0.1,.sas.rmit.edu.au,.rmit.edu.au"
+
