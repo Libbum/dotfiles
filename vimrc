@@ -308,8 +308,11 @@ set number " Show line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 set nofoldenable " Turn off folding 
-map <Leader>l :set invnumber<CR> " Toggle line numbers 
+"map <Leader>l :set invnumber<CR> " Toggle line numbers 
 set pastetoggle=<F10>
+" Togles line numbers
+nnoremap <silent> <F3> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR> 
+
 " Navigation ******************************************************************
 
 " Make cursor move by visual lines instead of file lines (when wrapping)
