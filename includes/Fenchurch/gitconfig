@@ -11,6 +11,6 @@
 [url "https://"]
 	insteadOf = git://
 [http]
-	proxy = e81365:N1tr0g3n@bproxy.rmit.edu.au:8080
+	proxy = bproxy.rmit.edu.au:8080
 [push]
 	default = matching
