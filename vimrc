@@ -304,7 +304,7 @@ autocmd VimEnter * call LoadKeyboard()
 
 " Misc settings ***************************************************************
 set backspace=indent,eol,start
-set rnu " Show line numbers
+set rnu " Show relative line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 set nofoldenable " Turn off folding 
