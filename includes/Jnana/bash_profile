@@ -1,0 +1,2 @@
+export CUPS_GSSSERVICENAME=HTTP
+export ALSAPCM=Wireless

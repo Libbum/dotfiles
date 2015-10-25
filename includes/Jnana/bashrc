@@ -1,0 +1,11 @@
+envoy -t ssh-agent 
+source <(envoy -p)
+
+source ~/bin/git-prompt.sh
+
+#Texlive
+export PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux
+
+alias matlab-dt='matlab -desktop'
+
+export keyboard=qwerty

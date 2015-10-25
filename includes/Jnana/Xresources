@@ -1,0 +1,122 @@
+! vim: ft=xdefaults
+
+! Apoklinon colours
+#define a_div01 #9E0142 
+#define a_div02 #D53E4F
+#define a_div03 #F46D43
+#define a_div04 #FDAE61
+#define a_div05 #FEE08B
+#define a_div06 #FFFFBF
+#define a_div07 #E6F598
+#define a_div08 #ABDDA4
+#define a_div09 #66C2A5
+#define a_div10 #3288BD
+#define a_div11 #5E4FA2
+
+#define a_bw01  #D4D4D4
+#define a_bw02  #AAAAAA
+#define a_bw03  #808080
+#define a_bw04  #555555
+#define a_bw05  #2B2B2B
+
+!{{{ Font
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+xterm.font:-misc-tamsyn-medium-r-normal-*-17-*-*-*-*-*-iso8859-1
+URxvt.font: xft:PragmataPro:style=Regular:pixelsize=14
+!}}}
+
+!{{{ Xterm
+xterm*cursorColor: #ffaf5f
+xterm*underlineColor: #5a667f
+xterm*highlightColor: #5a667f
+xterm*highlightTextColor: #000000
+xterm*internalBorder: 0
+xterm*urgentOnBell: True
+xterm*colorMode: on
+xterm*cursorBlink: true
+xterm*cursorUnderline: false
+!}}}
+
+!{{{ Urxvt
+URxvt*transparent: true
+URxvt*shading: 30
+URxvt*geometry: 80x22
+!Urxvt.depth: 24
+URxvt*internalBorder: 0
+URxvt*loginShell: true
+URxvt*urgentOnBell: True
+URxvt*colorMode: on
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: false
+URxvt*cursorColor: a_div03
+URxvt*underlineColor: a_bw04
+URxvt*highlightColor: a_bw05
+URxvt*highlightTextColor: a_div03
+URxvt*scrollBar: false
+URxvt*borderless: true
+URxvt.saveLines: 10000
+URxvt.buffered: true
+!Urxvt.letterSpace: -1
+!}}}
+
+!{{{ Urxvt Extensions
+URxvt.perl-lib: /usr/lib/urxvt/perl
+URxvt.perl-ext-common: default,matcher,url-select,keyboard-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.url-select.launcher:  /usr/bin/chromium
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+URxvt.colorUL: #94738c
+URxvt.matcher.button: 1
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.rend.0: fg7
+!}}}
+
+!{{{ Colours
+! using a divergent colourmap like apoklinon, 
+! base colours are their compliment rather than a brighter / darker pair 
+! TODO: Check this is actually a useful way of doing this...
+
+*background: a_bw05
+*foreground: a_bw01
+
+! Davys Gray (240) / Onyx (235)
+*color0: a_bw04
+*color8: a_bw05
+! Jazzberry Jam (125) / Brick Red (167) 
+*color1: a_div01
+*color9: a_div02
+! Granny Smith Apple (151) / Flavescent (222)
+*color2: a_div08
+*color10: a_div05
+! Outrageous Orange (203) / Light Khaki (192)
+*color3: a_div03
+*color11: a_div07
+! Tufts Blue (67) / Sandy Brown (215) 
+*color4: a_div10
+*color12: a_div04
+! Dark Lavender (61) / Lemon Chiffon (229) 
+*color5: a_div11
+*color13: a_div06
+! Medium Aquamarine (73) / Gray (244)=
+*color6: a_div09
+*color14: a_bw03
+! Light Gray (252) / Dark Gray (248)
+*color7: a_bw01
+*color15: a_bw02
+!}}}
+
+!{{{ Xcursor
+Xcursor.theme: Obsidian
+!Xcursor.size: 48
+!}}}
