@@ -3,9 +3,13 @@ source <(envoy -p)
 
 source ~/bin/git-prompt.sh
 
-#Texlive
-export PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux
+#Texlive and Ruby gems
+export PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux:/home/tim/.gem/ruby/2.3.0/bin
 
-alias matlab-dt='matlab -desktop'
+alias fehsvg='feh --magick-timeout 1'
+alias pcat='pygmentize -f terminal -O style=native -g'
+alias svnaddall="svn status | grep '?' | sed 's/^.* /svn add /' | bash"
 
 export keyboard=qwerty
+
+eval "$(thefuck --alias)"

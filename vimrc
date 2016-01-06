@@ -420,3 +420,6 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+
+set encoding=utf-8
+let &termencoding=&encoding

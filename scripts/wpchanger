@@ -1,9 +1,30 @@
 #!/bin/bash
-WALLPAPERS="/home/tim/Images/Wallpaper"
+
+sd=$(($RANDOM%2))
+
+if [ $sd -eq 1 ]
+then
+   WALLPAPERS="/home/tim/Images/Wallpaper/Single"
+else
+   WALLPAPERS="/home/tim/Images/Wallpaper/Dual"
+fi
+
 ALIST=( `ls -w1 $WALLPAPERS` )
 RANGE=${#ALIST[@]}
-let "number = $RANDOM"
-let LASTNUM="`cat $WALLPAPERS/.last` + $number"
-let "number = $LASTNUM % $RANGE"
-echo $number > $WALLPAPERS/.last
-nitrogen --set-scaled --save $WALLPAPERS/${ALIST[$number]}
+let "number0 = $RANDOM"
+let LASTNUM0="`cat $WALLPAPERS/.last0` + $number0"
+let "number0 = $LASTNUM0 % $RANGE"
+echo $number0 > $WALLPAPERS/.last0
+
+if [ $sd -eq 1 ]
+then
+   let "number1 = $RANDOM"
+   let LASTNUM1="`cat $WALLPAPERS/.last1` + $number1"
+   let "number1 = $LASTNUM1 % $RANGE"
+   echo $number1 > $WALLPAPERS/.last1
+   #It'd be nice not to call twice, but I don't think this is a possibility at the moment. 
+   nitrogen --set-scaled --head=0 --save $WALLPAPERS/${ALIST[$number0]}
+   nitrogen --set-scaled --head=1 --save $WALLPAPERS/${ALIST[$number1]}
+else
+   nitrogen --set-scaled --save $WALLPAPERS/${ALIST[$number0]}
+fi
