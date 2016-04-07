@@ -10,7 +10,7 @@ host=${HOSTNAME%%[.0-9]*}       #multiple checks. Remove full domain, remove mul
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 folders="vim scripts"             # list of directories to symlink to homedir
-files="bash_profile bashrc tmux.conf vimrc"    # list of file to symlink in homedir
+files="bash_profile bashrc tmux.conf vimrc latexmkrc"    # list of file to symlink in homedir
 specfiles="xinitrc xprofile Xresources vimrc.local gitconfig ghci zathurarc"  # system specific files, these do not have to exist
 #TODO: Sort this out so it just finds the files rather than having to list them
 ##########
