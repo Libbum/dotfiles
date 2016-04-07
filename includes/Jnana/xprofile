@@ -1,4 +1,4 @@
 ~/.scripts/wpchanger
 systemctl --user start bgchange.timer & #Start wallpaper changer
 # trayer --width 5 --transparent true --alpha 0 --tint 0x000000 --edge bottom --expand false --SetDockType false --distance 20 &
-export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARENTING=2
