@@ -3,11 +3,11 @@ source <(envoy -p)
 
 source ~/bin/git-prompt.sh
 
-#Texlive and Ruby gems
 export GOPATH=/home/tim/repos/gocode
 export PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux:/home/tim/.gem/ruby/2.3.0/bin:$GOPATH/bin
 export NOTI_PUSHBULLET_TOK=o.Rup9MFE3hwB2ovJjfOb4MVU4IsAzHymt
 export NOTI_DEFAULT="pushbullet"
+export GPG_TTY=$(tty)
 
 alias fehsvg='feh --magick-timeout 1'
 alias pcat='pygmentize -f terminal -O style=native -g'
