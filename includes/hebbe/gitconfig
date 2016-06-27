@@ -1,0 +1,12 @@
+[user]
+	name = Tim DuBois
+	email = timothy.dubois@chalmers.se
+[color]
+	ui = auto
+[diff]
+        tool = vimdiff
+[push]
+	default = matching
+[core]
+	editor = vim
+
