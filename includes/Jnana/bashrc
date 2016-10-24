@@ -4,7 +4,7 @@ source <(envoy -p)
 source ~/bin/git-prompt.sh
 
 export GOPATH=/home/tim/repos/gocode
-export PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux:/home/tim/.gem/ruby/2.3.0/bin:$GOPATH/bin
+export PATH=~/bin:$PATH:/home/tim/.cargo/bin:/usr/local/texlive/2015/bin/x86_64-linux:/home/tim/.gem/ruby/2.3.0/bin:$GOPATH/bin
 export NOTI_PUSHBULLET_TOK=o.Rup9MFE3hwB2ovJjfOb4MVU4IsAzHymt
 export NOTI_DEFAULT="pushbullet"
 export GPG_TTY=$(tty)
@@ -12,6 +12,8 @@ export GPG_TTY=$(tty)
 alias fehsvg='feh --magick-timeout 1'
 alias pcat='pygmentize -f terminal -O style=native -g'
 alias svnaddall="svn status | grep '?' | sed 's/^.* /svn add /' | bash"
+alias mdless='function _mdless(){ pandoc -s -f markdown -t man $@ | groff -T utf8 -man | less;};_mdless'
+function md2pdf() { pandoc $1 --latex-engine=xelatex -o $2 --variable mainfont=Georgia; }
 
 export keyboard=qwerty
 
