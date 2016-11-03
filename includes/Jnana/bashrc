@@ -13,7 +13,7 @@ alias fehsvg='feh --magick-timeout 1'
 alias pcat='pygmentize -f terminal -O style=native -g'
 alias svnaddall="svn status | grep '?' | sed 's/^.* /svn add /' | bash"
 alias mdless='function _mdless(){ pandoc -s -f markdown -t man $@ | groff -T utf8 -man | less;};_mdless'
-function md2pdf() { pandoc $1 --latex-engine=xelatex -o ${1%.md}.pdf --variable mainfont=Georgia; }
+function md2pdf() { pandoc $1 --filter pandoc-eqnos --latex-engine=xelatex -o ${1%.md}.pdf --variable mainfont=Georgia; }
 
 export keyboard=qwerty
 
