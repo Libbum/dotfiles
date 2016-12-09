@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ pandoc $1 --template ~/.pandoc/notes.latex --filter pandoc-eqnos --latex-engine=xelatex -o ${1%.md}.pdf;
