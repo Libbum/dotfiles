@@ -8,6 +8,8 @@ export PATH=~/bin:$PATH:/home/tim/.cargo/bin:/usr/local/texlive/2015/bin/x86_64-
 export NOTI_PUSHBULLET_TOK=o.Rup9MFE3hwB2ovJjfOb4MVU4IsAzHymt
 export NOTI_DEFAULT="pushbullet"
 export GPG_TTY=$(tty)
+export LIBVA_DRIVER_NAME=radeonsi
+export VDPAU_DRIVER=va_gl
 
 alias fehsvg='feh --magick-timeout 1'
 alias pcat='pygmentize -f terminal -O style=native -g'
@@ -23,8 +25,3 @@ export CXX=/opt/intel/composerxe/linux/bin/intel64/icpc
 
 source /opt/intel/composerxe/linux/mkl/bin/mklvars.sh intel64
 
-alias icmakepp='cmake -P /home/tim/Downloads/cmakepp/cmakepp/cmakepp.cmake icmake'
-alias cmakepp='cmake -P /home/tim/Downloads/cmakepp/cmakepp/cmakepp.cmake'
-alias pkg='cmake -P /home/tim/Downloads/cmakepp/cmakepp/cmakepp.cmake cmakepp_project_cli'
-alias cml='cmake -P /home/tim/Downloads/cmakepp/cmakepp/cmakepp.cmake cmakelists_cli'
-export CMAKEPP_PATH=/home/tim/Downloads/cmakepp/cmakepp/cmakepp.cmake
